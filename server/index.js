@@ -5,15 +5,13 @@ const models = require('./models.js');
 
 app.get('/reviews', (req, res) => {
   models.getReviewData((results) => {
-    res.status(200);
-    res.end(JSON.stringify(results));
+    res.status(200).send(JSON.stringify(results));
   });
 });
 
 app.get('/questions', (req, res) => {
   models.getQuestionData((resultsPacket) => {
-    res.status(200);
-    res.end(JSON.stringify(resultsPacket));
+    res.status(200).send(JSON.stringify(resultsPacket));
   });
 });
 
