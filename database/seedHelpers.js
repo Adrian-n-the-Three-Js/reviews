@@ -39,7 +39,7 @@ var generateRoomTip = () => {
 
 var generateTripType = () => {
   var tripTypes = ['Families', 'Couples', 'Solo', 'Business', 'Friends'];
-  let randomTripType = tripTypes[generateRandomIndex(tripTypes.length)];
+  let randomTripType = tripTypes[getRandomIndex(tripTypes.length)];
   return randomTripType;
 }
 
@@ -118,12 +118,14 @@ var generateHotelName = () => {
 var numberOfHotels = 100;
 
 var seedHotels = (callback) => {
-  let sql = 'INSERT INTO hotels(hotel_name, hotel_city) VALUES (?)';
+  let sql = 'INSERT INTO hotels(hotel_name, hotel_city) VALUES ?';
   var hotelTasks = [];
   for (let i = 0; i < numberOfHotels; i++) {
     let queryArgs = [generateHotelName(), generateCity()];
     hotelTasks.push(queryArgs);
   }
+  console.log(hotelTasks);
+  console.log(hotelTasks.length);
   db.query(sql, [hotelTasks], (err) => {
     if (err) {
       console.log('error: ' + err);
@@ -137,15 +139,17 @@ var seedHotels = (callback) => {
 var numberOfUsers = 2000;
 
 var seedUsers = (callback) => {
-  let sql = 'INSERT INTO users(username, user_avatar, user_city, user_contributions, user_helpful_votes) VALUES (?)';
+  let sql = 'INSERT INTO users(username, user_avatar, user_city, user_contributions, user_helpful_votes) VALUES ?';
   var userTasks = [];
   for (let i = 0; i < numberOfUsers; i++) {
     let queryArgs = [generateUserName(), generateUserAvatar(), generateCity(), generateNumber(30), generateNumber(30)];
     userTasks.push(queryArgs);
   }
+  console.log(userTasks);
+  console.log(userTasks.length);
   db.query(sql, [userTasks], (err) => {
     if (err) {
-      console.log('error: ' + err);
+      console.log('error: ' + err.message);
     } else {
       callback();
     }
@@ -153,7 +157,7 @@ var seedUsers = (callback) => {
 };
 
 var seedReviews = (callback) => {
-  let sql = 'INSERT INTO reviews(user_id, hotel_id, review_date, review_body, date_of_stay, room_tip, trip_type, overall_rating, value_rating, location_rating, service_rating, rooms_rating, cleanliness_rating, sleep_quality_rating, collected_in_part_hotel, review_helpful_votes) VALUES (?)';
+  let sql = 'INSERT INTO reviews(user_id, hotel_id, review_date, review_body, date_of_stay, room_tip, trip_type, overall_rating, value_rating, location_rating, service_rating, rooms_rating, cleanliness_rating, sleep_quality_rating, collected_in_part_hotel, review_helpful_votes) VALUES ?';
   var reviewTasks = [];
   for (let i = 0; i < numberOfHotels; i++) {
     // generate random number of reviews needed
@@ -167,7 +171,7 @@ var seedReviews = (callback) => {
   }
   db.query(sql, [reviewTasks], (err) => {
     if (err) {
-      console.log('error: ' + err);
+      console.log('error: ' + err.message);
     } else {
       callback();
     }
@@ -175,10 +179,10 @@ var seedReviews = (callback) => {
 };
 
 var seedQuestions = (callback) => {
-  let sql = 'INSERT INTO questions(user_id, hotel_id, question_date, question_body) VALUES (?)';
+  let sql = 'INSERT INTO questions(user_id, hotel_id, question_date, question_body) VALUES ?';
   var questionTasks = [];
   // for each hotel id
-  for (let i = 0; i < numberHotelIds; i++) {
+  for (let i = 0; i < numberOfHotels; i++) {
     // generate random number of reviews needed
     let questionsPerHotel = generateNumber(40);
     for (let x = 0; x < questionsPerHotel; x++) {
@@ -189,15 +193,25 @@ var seedQuestions = (callback) => {
   }
   db.query(sql, [questionTasks], (err) => {
     if (err) {
-      console.log('error: ' + err);
+      console.log('error: ' + err.message);
     } else {
       callback();
     }
   });
 };
 
-var seedAnswers = (callback) => {
-  let sql = 'INSERT INTO answers(question_id, user_id, answer_body, thumbs_up_count, thumbs_down_count) VALUES (?)';
+var getQuestionCount = (callback) => {
+  db.query('SELECT COUNT(*) FROM questions', (err, result) => {
+    if (err) {
+      console.log('error: ' + err.message);
+    } else {
+      callback(result, () => console.log('Done!'));
+    }
+  });
+};
+
+var seedAnswers = (numberQuestionIds, callback) => {
+  let sql = 'INSERT INTO answers(question_id, answerer_user_id, answer_body, thumbs_up_count, thumbs_down_count) VALUES ?';
   var answerTasks = [];
   // for each hotel id
   for (let i = 0; i < numberQuestionIds; i++) {
@@ -212,11 +226,15 @@ var seedAnswers = (callback) => {
   }
   db.query(sql, [answerTasks], (err) => {
     if (err) {
-      console.log('error: ' + err);
+      console.log('error: ' + err.message);
     } else {
       callback();
     }
   });
 };
 
-seedHotels(seedUsers(seedReviews(seedQuestions(seedAnswers(() => console.log('Done seeding!'))))));
+seedHotels(() => console.log('Seeded hotels'));
+seedUsers(() => console.log('Seeded users'));
+seedReviews(() => console.log('Seeded reviews'));
+seedQuestions(() => console.log('Seeded questions'));
+seedAnswers(50, () => console.log('Seeded answers'));
