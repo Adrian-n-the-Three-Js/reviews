@@ -11,9 +11,9 @@ app.get('/reviews', (req, res) => {
 });
 
 app.get('/questions', (req, res) => {
-  models.getQuestionData((results) => {
+  models.getQuestionData((resultsPacket) => {
     res.status(200);
-    res.end(JSON.stringify(results));
+    res.end(JSON.stringify(resultsPacket));
   });
 });
 
