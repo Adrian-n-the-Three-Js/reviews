@@ -7,7 +7,9 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "seed": "node ./database/seedHelpers.js"
+  },
   "dependencies": {
     "mysql": "^2.18.1"
   },

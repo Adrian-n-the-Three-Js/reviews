@@ -4,14 +4,14 @@ USE reviewComp;
 
 CREATE TABLE hotels (
   id int NOT NULL auto_increment,
-  hotel_name varchar(140) NOT NULL UNIQUE,
+  hotel_name varchar(140) NOT NULL,
   hotel_city varchar(255) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE users (
   id int NOT NULL auto_increment,
-  username varchar(50) NOT NULL UNIQUE,
+  username varchar(50) NOT NULL,
   user_avatar varchar(2083),
   user_city varchar(255) NOT NULL,
   user_contributions int DEFAULT 0,
@@ -22,6 +22,7 @@ CREATE TABLE users (
 CREATE TABLE reviews (
   id int NOT NULL auto_increment,
   user_id int NOT NULL,
+  hotel_id int NOT NULL,
   review_date TIMESTAMP NOT NULL,
   review_body text(20000) NOT NULL,
   date_of_stay DATE NOT NULL,
@@ -42,6 +43,7 @@ CREATE TABLE reviews (
 CREATE TABLE questions (
   id int NOT NULL auto_increment,
   user_id int NOT NULL,
+  hotel_id int NOT NULL,
   question_date TIMESTAMP NOT NULL,
   question_body text(20000) NOT NULL,
   PRIMARY KEY (id)
@@ -51,11 +53,13 @@ CREATE TABLE answers (
   id int NOT NULL auto_increment,
   question_id int NOT NULL,
   answerer_user_id int NOT NULL,
-  answer_date TIMESTAMP NOT NULL,
   answer_body text(20000) NOT NULL,
   thumbs_up_count int DEFAULT 0,
   thumbs_down_count int DEFAULT 0,
   PRIMARY KEY (id)
 );
 
--- To execute: mysql -u root -p < ./database/schema.sql
+-- To execute: mysql -u root < ./database/schema.sql
+-- Kill answer date -- stretch feature
+-- Killing UNIQUE from hotel_name (hotels table), username (users table), below constraint (reviews table)
+-- CONSTRAINT one_review_per_user_per_hotel UNIQUE (user_id, hotel_id)
