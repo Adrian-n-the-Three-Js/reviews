@@ -10,4 +10,11 @@ app.get('/reviews', (req, res) => {
   });
 });
 
+app.get('/questions', (req, res) => {
+  models.getQuestionData((results) => {
+    res.status(200);
+    res.end(JSON.stringify(results));
+  });
+});
+
 app.listen(port, () => console.log(`Reviews app listening at ${port}`));
