@@ -1,9 +1,6 @@
-// should go into db folder
-// insert into db using server connection page -- require
+const db = require('./index.js');
 
 // REVIEWS
-
-// could throw all of these into a master function or have a master function get help from these
 
 var getRandomIndex = (optionArrayLength) => {
   return Math.floor(Math.random() * Math.floor(optionArrayLength));
@@ -117,126 +114,109 @@ var generateHotelName = () => {
   return `${randomFirst} ${randomMiddle} ${randomLast}`;
 }
 
-// use generate city for hotel city
+
 var numberOfHotels = 100;
 
-var seedHotels = () => {
+var seedHotels = (callback) => {
+  let sql = 'INSERT INTO hotels(hotel_name, hotel_city) VALUES (?)';
   var hotelTasks = [];
   for (let i = 0; i < numberOfHotels; i++) {
-    let sql = 'INSERT INTO hotels(hotel_name, hotel_city) VALUES (?, ?)';
     let queryArgs = [generateHotelName(), generateCity()];
-    hotelTasks.push(function (callback) {
-      // don't forget to require db
-      db.query(sql, queryArgs, (err) => {
-        if (err) {
-          console.log('error: ' + err);
-        } else {
-          callback();
-        }
-      });
-    });
+    hotelTasks.push(queryArgs);
   }
-  // asyncMap(tasks, callback)
-    // would be great to use promises so the next would be seedUsers, but shouldn't pass anything
+  db.query(sql, [hotelTasks], (err) => {
+    if (err) {
+      console.log('error: ' + err);
+    } else {
+      callback();
+    }
+  });
 };
 
 
 var numberOfUsers = 2000;
 
-var seedUsers = () => {
+var seedUsers = (callback) => {
+  let sql = 'INSERT INTO users(username, user_avatar, user_city, user_contributions, user_helpful_votes) VALUES (?)';
   var userTasks = [];
   for (let i = 0; i < numberOfUsers; i++) {
-    let sql = 'INSERT INTO users(username, user_avatar, user_city, user_contributions, user_helpful_votes) VALUES (?, ?, ?, ?, ?)';
-    // last two elements are contributions and helpful votes
     let queryArgs = [generateUserName(), generateUserAvatar(), generateCity(), generateNumber(30), generateNumber(30)];
-    userTasks.push(function (callback) {
-      // don't forget to require db
-      db.query(sql, queryArgs, (err) => {
-        if (err) {
-          console.log('error: ' + err);
-        } else {
-          callback();
-        }
-      });
-    });
+    userTasks.push(queryArgs);
   }
-  // asyncMap(tasks, callback)
+  db.query(sql, [userTasks], (err) => {
+    if (err) {
+      console.log('error: ' + err);
+    } else {
+      callback();
+    }
+  });
 };
 
-var seedReviews = (numberHotelIds) => {
-  // tasks array can be more global
+var seedReviews = (callback) => {
+  let sql = 'INSERT INTO reviews(user_id, hotel_id, review_date, review_body, date_of_stay, room_tip, trip_type, overall_rating, value_rating, location_rating, service_rating, rooms_rating, cleanliness_rating, sleep_quality_rating, collected_in_part_hotel, review_helpful_votes) VALUES (?)';
   var reviewTasks = [];
-  // for each hotel id
-  for (let i = 0; i < numberHotelIds; i++) {
-  // generate random number of reviews needed
-  let reviewsPerHotel = generateNumber(100);
+  for (let i = 0; i < numberOfHotels; i++) {
+    // generate random number of reviews needed
+    let reviewsPerHotel = generateNumber(100);
     for (let x = 0; x < reviewsPerHotel; x++) {
-      // INSERT IGNORE??? or maybe don't worry about it
-      let sql = 'INSERT INTO reviews(user_id, hotel_id, review_date, review_body, date_of_stay, room_tip, trip_type, overall_rating, value_rating, location_rating, service_rating, rooms_rating, cleanliness_rating, sleep_quality_rating, collected_in_part_hotel, review_helpful_votes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-      // i is a hotel id
       let dateOfStay = generateDate(new Date(2010, 0, 1));
       let reviewDate = generateDate(dateOfStay);
       let queryArgs = [generateNumber(numberOfUsers), i, reviewDate, generateReviewBody(), dateOfStay, generateRoomTip(), generateTripType(), generateNumber(5), generateNumber(5), generateNumber(5), generateNumber(5), generateNumber(5), generateNumber(5), generateNumber(5), generateNumber(1), generateNumber(30)];
-      reviewTasks.push(function (callback) {
-        // don't forget to require db
-        db.query(sql, queryArgs, (err) => {
-          if (err) {
-            console.log('error: ' + err);
-          } else {
-            callback();
-          }
-        });
-      });
+      reviewTasks.push(queryArgs);
     }
-  // asyncMap(tasks, callback)
+  }
+  db.query(sql, [reviewTasks], (err) => {
+    if (err) {
+      console.log('error: ' + err);
+    } else {
+      callback();
+    }
+  });
 };
 
-var seedQuestions = () => {
+var seedQuestions = (callback) => {
+  let sql = 'INSERT INTO questions(user_id, hotel_id, question_date, question_body) VALUES (?)';
   var questionTasks = [];
   // for each hotel id
   for (let i = 0; i < numberHotelIds; i++) {
-  // generate random number of reviews needed
-  let questionsPerHotel = generateNumber(40);
+    // generate random number of reviews needed
+    let questionsPerHotel = generateNumber(40);
     for (let x = 0; x < questionsPerHotel; x++) {
-      let sql = 'INSERT INTO questions(user_id, hotel_id, question_date, question_body) VALUES (?, ?, ?, ?)';
-      // i is a hotel id
       let questionDate = generateDate(new Date(2010, 0, 1));
       let queryArgs = [generateNumber(numberOfUsers), i, questionDate, generateQuestionBody()];
-      questionTasks.push(function (callback) {
-        // don't forget to require db
-        db.query(sql, queryArgs, (err) => {
-          if (err) {
-            console.log('error: ' + err);
-          } else {
-            callback();
-          }
-        });
-      });
+      questionTasks.push(queryArgs);
     }
-  // asyncMap(tasks, callback)
+  }
+  db.query(sql, [questionTasks], (err) => {
+    if (err) {
+      console.log('error: ' + err);
+    } else {
+      callback();
+    }
+  });
 };
 
-var seedAnswers = () => {
+var seedAnswers = (callback) => {
+  let sql = 'INSERT INTO answers(question_id, user_id, answer_body, thumbs_up_count, thumbs_down_count) VALUES (?)';
   var answerTasks = [];
   // for each hotel id
   for (let i = 0; i < numberQuestionIds; i++) {
-  // generate random number of reviews needed
-  let answersPerQuestion = generateNumber(2);
+    // generate random number of reviews needed
+    let answersPerQuestion = generateNumber(2);
     for (let x = 0; x < answersPerQuestion; x++) {
-      let sql = 'INSERT INTO answers(question_id, user_id, answer_body, thumbs_up_count, thumbs_down_count) VALUES (?, ?, ?, ?, ?, ?)';
-      // i is a question id
       // make answerDate an advanced feature -- requires coordination amongst tables
-      // let answerDate = generateDate(new Date(2010, 0, 1));
+        // let answerDate = generateDate(new Date(2010, 0, 1));
       let queryArgs = [i, generateNumber(numberOfUsers), generateQuestionBody(), generateNumber(10), generateNumber(2)];
-      answerTasks.push(function (callback) {
-        db.query(sql, queryArgs, (err) => {
-          if (err) {
-            console.log('error: ' + err);
-          } else {
-            callback();
-          }
-        });
-      });
+      answerTasks.push(queryArgs);
     }
-  // asyncMap(tasks, callback)
+  }
+  db.query(sql, [answerTasks], (err) => {
+    if (err) {
+      console.log('error: ' + err);
+    } else {
+      callback();
+    }
+  });
 };
+
+seedHotels(seedUsers(seedReviews(seedQuestions(seedAnswers(() => console.log('Done seeding!'))))));
