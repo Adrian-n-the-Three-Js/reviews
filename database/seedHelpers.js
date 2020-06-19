@@ -220,7 +220,7 @@ var seedAnswers = (numberQuestionIds, callback) => {
     for (let x = 0; x < answersPerQuestion; x++) {
       // make answerDate an advanced feature -- requires coordination amongst tables
         // let answerDate = generateDate(new Date(2010, 0, 1));
-      let queryArgs = [i, generateNumber(numberOfUsers), generateQuestionBody(), generateNumber(10), generateNumber(2)];
+      let queryArgs = [i, generateNumber(numberOfUsers), generateAnswerBody(), generateNumber(10), generateNumber(2)];
       answerTasks.push(queryArgs);
     }
   }
