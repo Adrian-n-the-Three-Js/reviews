@@ -21,11 +21,11 @@ var getQuestionData = (callback) => {
 
   db.query(questionSql, (err, results) => {
     if (err) throw err;
-    questionAnswerPacket.questions = JSON.stringify(results);
+    questionAnswerPacket.questions = results;
 
     db.query(answersSql, (err, results) => {
       if (err) throw err;
-      questionAnswerPacket.answers = JSON.stringify(results);
+      questionAnswerPacket.answers = results;
       callback(questionAnswerPacket);
     });
   });
