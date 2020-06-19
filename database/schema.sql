@@ -22,6 +22,7 @@ CREATE TABLE users (
 CREATE TABLE reviews (
   id int NOT NULL auto_increment,
   user_id int NOT NULL,
+  hotel_id int NOT NULL,
   review_date TIMESTAMP NOT NULL,
   review_body text(20000) NOT NULL,
   date_of_stay DATE NOT NULL,
@@ -36,12 +37,14 @@ CREATE TABLE reviews (
   sleep_quality_rating tinyint,
   collected_in_part_hotel tinyint(1),
   review_helpful_votes int DEFAULT 0,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  CONSTRAINT one_review_per_user_per_hotel UNIQUE (user_id, hotel_id)
 );
 
 CREATE TABLE questions (
   id int NOT NULL auto_increment,
   user_id int NOT NULL,
+  hotel_id int NOT NULL,
   question_date TIMESTAMP NOT NULL,
   question_body text(20000) NOT NULL,
   PRIMARY KEY (id)
@@ -58,4 +61,5 @@ CREATE TABLE answers (
   PRIMARY KEY (id)
 );
 
--- To execute: mysql -u root -p < ./database/schema.sql
+-- To execute: mysql -u root < ./database/schema.sql
+-- Kill answer date -- stretch feature
