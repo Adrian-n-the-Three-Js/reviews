@@ -20,8 +20,6 @@ class App extends React.Component {
     });
   }
 
-  // for each review in state, spit out a Review component
-
   render() {
     return (
       <div>
