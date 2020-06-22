@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: null
+      reviews: []
     };
   }
 
@@ -26,7 +26,9 @@ class App extends React.Component {
     return (
       <div>
         <h1>yo</h1>
-        <Review />
+        {this.state.reviews.map((review) => {
+          return <Review reviewData={review} />
+        })}
       </div>
     );
   }

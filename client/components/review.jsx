@@ -2,7 +2,10 @@ import React from 'react';
 
 function Review(props) {
   return (
-    <div>wutup</div>
+    <div>
+      <div>{props.reviewData.username}</div>
+      <div>{props.reviewData.review_date}</div>
+    </div>
   );
 }
 
