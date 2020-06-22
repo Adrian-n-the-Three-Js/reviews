@@ -3,6 +3,8 @@ const app = express();
 const port = 3000;
 const models = require('./models.js');
 
+app.use(express.static('public'));
+
 app.get('/reviews', (req, res) => {
   models.getReviewData((results) => {
     res.status(200).send(JSON.stringify(results));
