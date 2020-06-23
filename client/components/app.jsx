@@ -42,6 +42,9 @@ class App extends React.Component {
       }
     };
     this.handleChange = this.handleChange.bind(this);
+    this.aggregateFilters = this.aggregateFilters.bind(this);
+    this.returnFilteredReviews = this.returnFilteredReviews.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleChange(e, filterToToggle) {
@@ -57,6 +60,46 @@ class App extends React.Component {
         }
       }
     }));
+  }
+
+  aggregateFilters() {
+    var combinedFilters = {
+      overall_rating: [],
+      month_of_stay: [],
+      trip_type: []
+    };
+    var {overall_rating, month_of_stay, trip_type} = this.state.filters;
+    for (let ratingKey in overall_rating) {
+      if (overall_rating[ratingKey]) combinedFilters.overall_rating.push(ratingKey);
+    }
+    for (let monthKey in month_of_stay) {
+      if (month_of_stay[monthKey]) combinedFilters.month_of_stay.push(monthKey);
+    }
+    for (let tripKey in trip_type) {
+      if (trip_type[tripKey]) combinedFilters.trip_type.push(tripKey);
+    }
+    return combinedFilters;
+  }
+
+  returnFilteredReviews(reviews, filters) {
+    var filterKeys = Object.keys(filters);
+    return reviews.filter(review => {
+      return filterKeys.every(key => {
+        // ignores empty filter
+        if (!filters[key].length) return true;
+        if (Array.isArray(review[key])) {
+          return review[key].some(element => filters[key].includes(element));
+        }
+        return filters[key].includes(review[key]);
+      });
+    });
+  }
+
+  handleSearch() {
+    var filteredReviews = this.returnFilteredReviews(this.state.reviews, this.aggregateFilters());
+    return filteredReviews.filter(review => {
+      return review.review_body.toLowerCase().includes(this.state.filters.search.searchTerm);
+    });
   }
 
   componentDidMount() {
@@ -240,7 +283,7 @@ class App extends React.Component {
         </div>
 
         <ul>
-          {this.state.reviews.map((review) => {
+          {this.handleSearch().map((review) => {
             return <Review reviewData={review} />
           })}
         </ul>
