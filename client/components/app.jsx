@@ -70,10 +70,10 @@ class App extends React.Component {
     };
     var {overall_rating, month_of_stay, trip_type} = this.state.filters;
     for (let ratingKey in overall_rating) {
-      if (overall_rating[ratingKey]) combinedFilters.overall_rating.push(ratingKey);
+      if (overall_rating[ratingKey]) combinedFilters.overall_rating.push(Number(ratingKey));
     }
     for (let monthKey in month_of_stay) {
-      if (month_of_stay[monthKey]) combinedFilters.month_of_stay.push(monthKey);
+      if (month_of_stay[monthKey]) combinedFilters.month_of_stay.push(Number(monthKey));
     }
     for (let tripKey in trip_type) {
       if (trip_type[tripKey]) combinedFilters.trip_type.push(tripKey);
