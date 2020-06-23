@@ -44,13 +44,12 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.aggregateFilters = this.aggregateFilters.bind(this);
     this.returnFilteredReviews = this.returnFilteredReviews.bind(this);
+    this.productsToSearch = this.productsToSearch.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleChange(e, filterToToggle) {
-    console.log('triggered!');
     const name = e.target.name;
-    console.log(name);
     this.setState(prevState => ({
       filters: {
         ...prevState.filters,
@@ -95,10 +94,10 @@ class App extends React.Component {
     });
   }
 
-  handleSearch() {
+  productsToSearch() {
     var filteredReviews = this.returnFilteredReviews(this.state.reviews, this.aggregateFilters());
     return filteredReviews.filter(review => {
-      return review.review_body.toLowerCase().includes(this.state.filters.search.searchTerm);
+      return review.review_body.toLowerCase().includes(this.state.filters.search.searchTerm.toLowerCase());
     });
   }
 
@@ -109,6 +108,18 @@ class App extends React.Component {
       success: (data) => { this.setState({reviews: JSON.parse(data)}) },
       error: () => console.log('Error retrieving data from server')
     });
+  }
+
+  handleSearch(e) {
+    const term = e.target.value;
+    this.setState(prevState => ({
+      filters: {
+        ...prevState.filters,
+        search: {
+          searchTerm: term
+        }
+      }
+    }));
   }
 
   render() {
@@ -277,13 +288,12 @@ class App extends React.Component {
         <div className="search">
 
           <form>
-            <input type="submit" />
-            <input type="text" placeholder="Search reviews"/>
+            <input name="searchTerm" type="text" placeholder="Search reviews" value={this.state.filters.search.searchTerm} onChange={e => this.handleSearch(e)} />
           </form>
         </div>
 
         <ul>
-          {this.handleSearch().map((review) => {
+          {this.productsToSearch().map((review) => {
             return <Review reviewData={review} />
           })}
         </ul>
