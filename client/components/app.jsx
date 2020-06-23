@@ -25,12 +25,13 @@ class App extends React.Component {
 
         <div className="header">
           <h1>Reviews</h1>
+          <input type="submit" value="Write a review" />
         </div>
 
         <div className="filters">
 
           <div className="traveler_rating">
-          Traveler Rating
+          Traveler rating
             <ul>
               <li>
                 <label>
@@ -96,7 +97,7 @@ class App extends React.Component {
           </div>
 
           <div className="traveler_type">
-          Traveler Type
+          Traveler type
             <ul>
               <li>
                 <label>
@@ -132,9 +133,15 @@ class App extends React.Component {
           </div>
 
         </div>
+
         <div className="search">
-          Search reviews
+
+          <form>
+            <input type="submit" />
+            <input type="text" placeholder="Search reviews"/>
+          </form>
         </div>
+
         <ul>
           {this.state.reviews.map((review) => {
             return <Review reviewData={review} />
