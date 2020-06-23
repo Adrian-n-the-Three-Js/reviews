@@ -11,7 +11,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // ajax to get reviews from server
     $.ajax({
       url: '/reviews',
       method: "GET",
@@ -22,11 +21,125 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>yo</h1>
-        {this.state.reviews.map((review) => {
-          return <Review reviewData={review} />
-        })}
+      <div className="app">
+
+        <div className="header">
+          <h1>Reviews</h1>
+        </div>
+
+        <div className="filters">
+
+          <div className="traveler_rating">
+          Traveler Rating
+            <ul>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Excellent
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Very Good
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Average
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Poor
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Terrible
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <div className="time_of_year">
+          Time of year
+            <ul>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Mar-May
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Jun-Aug
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Sep-Nov
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Dec-Feb
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <div className="traveler_type">
+          Traveler Type
+            <ul>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Families
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Couples
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Solo
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Business
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" />
+                  Friends
+                </label>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <div className="search">
+          Search reviews
+        </div>
+        <ul>
+          {this.state.reviews.map((review) => {
+            return <Review reviewData={review} />
+          })}
+        </ul>
       </div>
     );
   }
