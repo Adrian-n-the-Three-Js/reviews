@@ -11,7 +11,7 @@
     "seed": "node ./database/seedHelpers.js",
     "nodemon": "nodemon ./server/index.js",
     "react-dev": "webpack -d --watch",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "babel-preset-react-app": "^9.1.2",
