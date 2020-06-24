@@ -11,7 +11,6 @@ function Review(props) {
       <div>{props.reviewData.user_helpful_votes}</div>
       <div>{props.reviewData.overall_rating}</div>
       <div>{props.reviewData.review_body}</div>
-      <input type="submit" value="Read more" />
       <div>{props.reviewData.date_of_stay}</div>
     </li>
   );
