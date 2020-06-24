@@ -1,0 +1,6 @@
+/node_modules
+/coverage
+/tests
+/public/bundle.js
+jest.config.js
+webpack.config.js
