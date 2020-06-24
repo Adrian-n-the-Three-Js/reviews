@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import ModalWrapper from './modalwrapper.jsx';
+import ModalWrapper from './modalWrapper.jsx';
 
 const modalRoot = document.getElementById('modal-root');
 
