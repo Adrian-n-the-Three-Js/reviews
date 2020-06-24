@@ -1,11 +1,13 @@
 import React from 'react';
 import Review from './review.jsx';
 import $ from 'jquery';
+import Modal from './modal.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isModalOpen: false,
       reviews: [],
       filters: {
         search: {
@@ -46,6 +48,13 @@ class App extends React.Component {
     this.returnFilteredReviews = this.returnFilteredReviews.bind(this);
     this.productsToSearch = this.productsToSearch.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+
+  toggleModal() {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen
+    });
   }
 
   handleChange(e, filterToToggle) {
@@ -128,7 +137,18 @@ class App extends React.Component {
 
         <div className="header">
           <h1>Reviews</h1>
-          <input type="submit" value="Write a review" />
+
+          <div className="modal">
+            <input type="submit" value="Write a review" onClick={this.toggleModal} />
+            {this.state.isModalOpen ? <Modal
+            id="modal"
+            isOpen={this.state.isModalOpen}
+            onClose={this.toggleModal}
+            >
+            </Modal>
+            : null}
+          </div>
+
         </div>
 
         <div className="filters">
