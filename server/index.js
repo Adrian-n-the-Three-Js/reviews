@@ -4,12 +4,13 @@ const app = express();
 const port = 3000;
 const models = require('./models.js');
 
-app.use(express.static('public'));
+app.use('/', express.static('public'));
 
-app.get('/reviews', (req, res) => {
+app.get('/reviews/:hotelId', (req, res) => {
+  const hotelId = req.params.hotelId || 1;
   models.getReviewData((results) => {
     res.status(200).send(JSON.stringify(results));
-  });
+  }, hotelId);
 });
 
 app.get('/questions', (req, res) => {
