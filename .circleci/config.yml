@@ -7,18 +7,18 @@ jobs:
     steps:
       - checkout
       - run:
-        name: install npm dependencies
-        command: npm install --save
+          name: install npm dependencies
+          command: npm install --save
       - run:
-        name: react-dev
-        command: npm run react-dev
+          name: react-dev
+          command: npm run react-dev
       - run:
-        name: run unit tests
-        command: npm run test
+          name: run unit tests
+          command: npm run test
       - store_test_result:
-        path: test-results
+          path: test-results
       - store_artifacts:
-        path: test-results
+          path: test-results
 
 
 
