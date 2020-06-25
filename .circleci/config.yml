@@ -8,16 +8,13 @@ jobs:
       - checkout
       - run:
         name: install npm dependencies
-        command: |
-          npm install --save
+        command: npm install --save
       - run:
         name: react-dev
-        command: |
-          npm run react-dev
+        command: npm run react-dev
       - run:
         name: run unit tests
-        command: |
-          npm run test
+        command: npm run test
       - store_test_result:
         path: test-results
       - store_artifacts:
