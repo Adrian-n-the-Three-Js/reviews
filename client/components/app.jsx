@@ -112,7 +112,7 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/reviews',
+      url: `/reviews/${this.props.hotelId}`,
       method: "GET",
       success: (data) => { this.setState({reviews: JSON.parse(data)}) },
       error: () => console.log('Error retrieving data from server')
