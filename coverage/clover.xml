@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1593046141715" clover="3.2.0">
-  <project timestamp="1593046141715" name="All files">
+<coverage generated="1593111951437" clover="3.2.0">
+  <project timestamp="1593111951438" name="All files">
     <metrics statements="85" coveredstatements="65" conditionals="26" coveredconditionals="9" methods="52" coveredmethods="39" elements="163" coveredelements="113" complexity="0" loc="85" ncloc="85" packages="1" files="4" classes="4"/>
     <file name="app.jsx" path="/Users/georgeking/Documents/HRSF 128/reviews/client/components/app.jsx">
       <metrics statements="60" coveredstatements="50" conditionals="12" coveredconditionals="7" methods="41" coveredmethods="33"/>
-      <line num="8" count="25" type="stmt"/>
-      <line num="9" count="25" type="stmt"/>
-      <line num="46" count="25" type="stmt"/>
-      <line num="47" count="25" type="stmt"/>
-      <line num="48" count="25" type="stmt"/>
-      <line num="49" count="25" type="stmt"/>
-      <line num="50" count="25" type="stmt"/>
-      <line num="51" count="25" type="stmt"/>
+      <line num="8" count="26" type="stmt"/>
+      <line num="9" count="26" type="stmt"/>
+      <line num="46" count="26" type="stmt"/>
+      <line num="47" count="26" type="stmt"/>
+      <line num="48" count="26" type="stmt"/>
+      <line num="49" count="26" type="stmt"/>
+      <line num="50" count="26" type="stmt"/>
+      <line num="51" count="26" type="stmt"/>
       <line num="55" count="0" type="stmt"/>
       <line num="61" count="22" type="stmt"/>
       <line num="62" count="22" type="stmt"/>
-      <line num="74" count="48" type="stmt"/>
-      <line num="79" count="48" type="stmt"/>
-      <line num="80" count="48" type="stmt"/>
-      <line num="81" count="240" type="cond" truecount="2" falsecount="0"/>
-      <line num="83" count="48" type="stmt"/>
-      <line num="84" count="576" type="cond" truecount="2" falsecount="0"/>
-      <line num="86" count="48" type="stmt"/>
-      <line num="87" count="240" type="cond" truecount="2" falsecount="0"/>
-      <line num="89" count="48" type="stmt"/>
-      <line num="93" count="48" type="stmt"/>
-      <line num="94" count="48" type="stmt"/>
+      <line num="74" count="49" type="stmt"/>
+      <line num="79" count="49" type="stmt"/>
+      <line num="80" count="49" type="stmt"/>
+      <line num="81" count="245" type="cond" truecount="2" falsecount="0"/>
+      <line num="83" count="49" type="stmt"/>
+      <line num="84" count="588" type="cond" truecount="2" falsecount="0"/>
+      <line num="86" count="49" type="stmt"/>
+      <line num="87" count="245" type="cond" truecount="2" falsecount="0"/>
+      <line num="89" count="49" type="stmt"/>
+      <line num="93" count="49" type="stmt"/>
+      <line num="94" count="49" type="stmt"/>
       <line num="95" count="0" type="stmt"/>
       <line num="97" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="99" count="0" type="stmt"/>
       <line num="101" count="0" type="stmt"/>
-      <line num="107" count="48" type="stmt"/>
-      <line num="108" count="48" type="stmt"/>
+      <line num="107" count="49" type="stmt"/>
+      <line num="108" count="49" type="stmt"/>
       <line num="109" count="0" type="stmt"/>
-      <line num="114" count="25" type="stmt"/>
+      <line num="114" count="27" type="stmt"/>
       <line num="117" count="0" type="stmt"/>
       <line num="118" count="0" type="stmt"/>
       <line num="123" count="1" type="stmt"/>
       <line num="124" count="1" type="stmt"/>
-      <line num="135" count="48" type="stmt"/>
+      <line num="135" count="49" type="stmt"/>
       <line num="161" count="1" type="stmt"/>
       <line num="167" count="1" type="stmt"/>
       <line num="173" count="1" type="stmt"/>
