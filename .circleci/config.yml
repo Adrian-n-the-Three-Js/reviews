@@ -1,38 +1,26 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+
 version: 2.1
 jobs:
-  run_tests:
+  build:
     docker:
       - image: circleci/node:10.15.3
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
           name: install npm dependencies
-          command: npm install --save
+          command: |
+            npm install --save
       - run:
           name: react-dev
-          command: npm run react-dev
+          command: |
+            npm run react-dev
       - run:
           name: run unit tests
-          command: npm run test
-      - store_test_result:
+          command: |
+            npm run test
+      - store_test_results:
           path: test-results
       - store_artifacts:
           path: test-results
-
-
-
-
-
-# Use a package of configuration called an orb.
-# orbs:
-#   # Declare a dependency on the welcome-orb
-#   welcome: circleci/welcome-orb@0.4.1
-
-# # Orchestrate or schedule a set of jobs
-# workflows:
-#   # Name the workflow "welcome"
-#   welcome:
-#     # Run the welcome/run job in its own container
-#     jobs:
-#       - welcome/run
