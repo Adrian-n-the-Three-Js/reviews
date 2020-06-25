@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1593039884741" clover="3.2.0">
-  <project timestamp="1593039884741" name="All files">
-    <metrics statements="85" coveredstatements="38" conditionals="26" coveredconditionals="5" methods="52" coveredmethods="13" elements="163" coveredelements="56" complexity="0" loc="85" ncloc="85" packages="1" files="4" classes="4"/>
+<coverage generated="1593044307176" clover="3.2.0">
+  <project timestamp="1593044307176" name="All files">
+    <metrics statements="85" coveredstatements="41" conditionals="26" coveredconditionals="7" methods="52" coveredmethods="15" elements="163" coveredelements="63" complexity="0" loc="85" ncloc="85" packages="1" files="4" classes="4"/>
     <file name="app.jsx" path="/Users/georgeking/Documents/HRSF 128/reviews/client/components/app.jsx">
       <metrics statements="60" coveredstatements="26" conditionals="12" coveredconditionals="5" methods="41" coveredmethods="9"/>
       <line num="8" count="3" type="stmt"/>
@@ -66,17 +66,17 @@
       <line num="317" count="0" type="stmt"/>
     </file>
     <file name="modal.jsx" path="/Users/georgeking/Documents/HRSF 128/reviews/client/components/modal.jsx">
-      <metrics statements="20" coveredstatements="10" conditionals="12" coveredconditionals="0" methods="9" coveredmethods="3"/>
+      <metrics statements="20" coveredstatements="13" conditionals="12" coveredconditionals="2" methods="9" coveredmethods="5"/>
       <line num="6" count="2" type="stmt"/>
-      <line num="10" count="2" type="stmt"/>
-      <line num="11" count="2" type="stmt"/>
-      <line num="14" count="2" type="stmt"/>
-      <line num="15" count="2" type="stmt"/>
-      <line num="16" count="2" type="stmt"/>
-      <line num="17" count="2" type="stmt"/>
-      <line num="21" count="2" type="stmt"/>
-      <line num="22" count="2" type="stmt"/>
-      <line num="26" count="0" type="cond" truecount="0" falsecount="4"/>
+      <line num="10" count="4" type="stmt"/>
+      <line num="11" count="4" type="stmt"/>
+      <line num="14" count="4" type="stmt"/>
+      <line num="15" count="4" type="stmt"/>
+      <line num="16" count="4" type="stmt"/>
+      <line num="17" count="4" type="stmt"/>
+      <line num="21" count="4" type="stmt"/>
+      <line num="22" count="4" type="stmt"/>
+      <line num="26" count="1" type="cond" truecount="2" falsecount="2"/>
       <line num="27" count="0" type="stmt"/>
       <line num="32" count="0" type="stmt"/>
       <line num="36" count="0" type="cond" truecount="0" falsecount="4"/>
@@ -84,9 +84,9 @@
       <line num="38" count="0" type="stmt"/>
       <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="44" count="0" type="stmt"/>
-      <line num="48" count="0" type="stmt"/>
-      <line num="49" count="0" type="stmt"/>
-      <line num="53" count="2" type="stmt"/>
+      <line num="48" count="1" type="stmt"/>
+      <line num="49" count="1" type="stmt"/>
+      <line num="53" count="5" type="stmt"/>
     </file>
     <file name="modalWrapper.jsx" path="/Users/georgeking/Documents/HRSF 128/reviews/client/components/modalWrapper.jsx">
       <metrics statements="4" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>

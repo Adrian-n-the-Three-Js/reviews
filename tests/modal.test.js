@@ -1,6 +1,7 @@
 import Modal from '../client/components/modal.jsx';
 import renderer from 'react-test-renderer';
 import ReactDOM from 'react-dom';
+import sinon from 'sinon';
 
 describe('Modal', () => {
 
@@ -41,6 +42,36 @@ describe('Modal', () => {
     expect(overlay).toHaveLength(1);
   });
 
-  // write test to simulate modal click -- check to see if closed?
+  it('should invoke handleClick upon user input', () => {
+    ReactDOM.createPortal = jest.fn(modal => modal);
+    const mockOnClose = jest.fn();
+    const spy = jest.spyOn(Modal.prototype, 'handleClick');
+    const wrapper = shallow(
+      <Modal
+      id="modal"
+      isOpen={() => {}}
+      onClose={() => {}}
+      >
+      </Modal>
+    );
+    wrapper.find('div.box-header button').simulate('click', { preventDefault: jest.fn() });
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should invoke handleClick upon mousedown', () => {
+    ReactDOM.createPortal = jest.fn(modal => modal);
+    const mockOnClose = jest.fn();
+    const spy = jest.spyOn(Modal.prototype, 'handleClick');
+    const wrapper = shallow(
+      <Modal
+      id="modal"
+      isOpen={() => {}}
+      onClose={() => {}}
+      >
+      </Modal>
+    );
+    wrapper.find('div.box-footer').first().simulate('click', { preventDefault: jest.fn() });
+    expect(spy).toHaveBeenCalled();
+  });
 
 });
