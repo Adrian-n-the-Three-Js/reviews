@@ -1,20 +1,8 @@
 import Modal from '../client/components/modal.jsx';
 import renderer from 'react-test-renderer';
 import ReactDOM from 'react-dom';
-import sinon from 'sinon';
 
 describe('Modal', () => {
-
-  // const modalRoot = global.document.createElement('div');
-  // modalRoot.setAttribute('id', 'modal-root');
-  // const body = global.document.querySelector('body');
-  // body.appendChild(modalRoot);
-
-  // afterEach(() => {
-  //   component.unmount();
-  // });
-
-
   it('renders with given props', () => {
     ReactDOM.createPortal = jest.fn(modal => modal);
     const wrapper = shallow(
@@ -42,7 +30,7 @@ describe('Modal', () => {
     expect(overlay).toHaveLength(1);
   });
 
-  it('should invoke handleClick upon user input', () => {
+  it('should invoke handleClick upon user click', () => {
     ReactDOM.createPortal = jest.fn(modal => modal);
     const mockOnClose = jest.fn();
     const spy = jest.spyOn(Modal.prototype, 'handleClick');
@@ -58,7 +46,7 @@ describe('Modal', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  it('should invoke handleClick upon mousedown', () => {
+  it('should invoke handleClick upon user click', () => {
     ReactDOM.createPortal = jest.fn(modal => modal);
     const mockOnClose = jest.fn();
     const spy = jest.spyOn(Modal.prototype, 'handleClick');
