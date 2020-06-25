@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import ModalWrapper from './modalwrapper.jsx';
+import ModalWrapper from './modalWrapper.jsx';
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -58,7 +58,7 @@ class Modal extends React.Component {
         modalSize={this.props.modalSize}
         onTransitionEnd={this.transitionEnd}
         >
-          <div className="box-dialog">
+        <div className="box-dialog">
           <div className="box-header">
             <h4 className="box-title">Leave a review</h4>
             <button onClick={this.handleClick} className="close">
