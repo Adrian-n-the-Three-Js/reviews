@@ -73,7 +73,7 @@ class Modal extends React.Component {
 
           <div className="box-footer">
             <button onClick={this.handleClick} className="close">
-              Submit
+              Submit Initial Feedback
             </button>
             <button onClick={this.handleClick} className="close">
               Close
