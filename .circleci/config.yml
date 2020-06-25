@@ -9,11 +9,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install npm dependencies
+          name: Install npm dependencies
           command: |
             npm install --save
       - run:
-          name: run unit tests
+          name: Run unit tests
           command: |
             npm run test
       - store_test_results:
