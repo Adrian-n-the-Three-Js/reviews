@@ -7,7 +7,7 @@ const db = require('./index.js');
 const getRandomIndex = (optionArrayLength) => Math.floor(Math.random() * Math.floor(optionArrayLength));
 
 const generateReviewBody = () => {
-  const moods = ['hated', 'taken aback by', 'angered by', 'confused by', 'surprised by', 'delighted by', 'happy with', 'loved'];
+  const moods = ['hated', 'was taken aback by', 'was angered by', 'was confused by', 'was surprised by', 'was delighted by', 'was happy with', 'loved', 'liked'];
   const randomMood = moods[getRandomIndex(moods.length)];
   const nouns = ['chairs', 'cupboards', 'refreshments', 'assistance', 'amenities', 'appliances'];
   const randomNoun = nouns[getRandomIndex(nouns.length)];
@@ -51,7 +51,7 @@ const generateCity = () => {
 };
 
 const generateUserAvatar = () => {
-  const avatarUrls = ['https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fphoto%2Fbeautiful-view-of-moraine-lake-2662116%2F&psig=AOvVaw2KVYteqdGtnIBWVYrUzqrB&ust=1592590149247000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjh0eP6i-oCFQAAAAAdAAAAABAD', 'https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.healthreason.com%2Fbeautiful-view%2F&psig=AOvVaw2KVYteqdGtnIBWVYrUzqrB&ust=1592590149247000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjh0eP6i-oCFQAAAAAdAAAAABAI', 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fwallpaper%2Fcomments%2F81xxwe%2Fa_beautiful_view_of_the_sea_1920x1080%2F&psig=AOvVaw2KVYteqdGtnIBWVYrUzqrB&ust=1592590149247000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjh0eP6i-oCFQAAAAAdAAAAABAO', 'https://image.freepik.com/free-photo/beautiful-view-sunset-sea_23-2148019892.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQVscczKCwBsAg0aMMcI5NjX1meu8_HDZ3d2jhQonix1DCY5n1E&usqp=CAU', 'https://cache.desktopnexus.com/thumbseg/1584/1584748-bigthumbnail.jpg', 'https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSUQobLPiOw-RstxSgFJdTdA5eB0xzHi8p8cbkZfG7u9Ne3xTqz&usqp=CAU'];
+  const avatarUrls = ['https://image.freepik.com/free-photo/beautiful-view-sunset-sea_23-2148019892.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQVscczKCwBsAg0aMMcI5NjX1meu8_HDZ3d2jhQonix1DCY5n1E&usqp=CAU', 'https://cache.desktopnexus.com/thumbseg/1584/1584748-bigthumbnail.jpg', 'https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSUQobLPiOw-RstxSgFJdTdA5eB0xzHi8p8cbkZfG7u9Ne3xTqz&usqp=CAU'];
   const randomUrl = avatarUrls[getRandomIndex(avatarUrls.length)];
   return randomUrl;
 };
