@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const ModalWrapper = styled.div`
+  font-family: "Trips Sans", Arial, sans-serif;
   position: absolute;
   top: 0;
   left: 0;
@@ -87,6 +88,26 @@ const ModalWrapper = styled.div`
       justify-content: flex-end;
       border-top: 1px solid #c7c7c7;
     }
+  }
+  .box-content label, form {
+    margin-top: 2px;
+    font-size: 12px;
+    color: rbg(44, 44, 44);
+    font-weight: bold;
+  }
+  .box-content select, .box-content input, .box-content form, .box-content textarea {
+    margin-bottom: 10px;
+  }
+  .radio-form label {
+    font-weight: normal;
+  }
+  .radio-form label, .radio-form input {
+    margin-right: 4px;
+  }
+  .main-review-input {
+    width: 80%;
+    margin-bottom: 2px;
+    font-family: "Trips Sans", Arial, sans-serif;
   }
 `;
 

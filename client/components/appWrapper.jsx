@@ -266,7 +266,18 @@ const AppWrapper = styled.div`
     text-align: center;
     vertical-align: middle;
   }
+  .time_of_year label,
+  .traveler_type label {
+    padding: 2px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
 
+  }
+  .time_of_year input,
+  .traveler_type input {
+    margin-right: 8px;
+  }
 `;
 
 export default AppWrapper;

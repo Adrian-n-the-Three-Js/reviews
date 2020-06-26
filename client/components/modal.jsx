@@ -67,16 +67,54 @@ class Modal extends React.Component {
           </div>
 
           <div className="box-content">
-            <p><input type="text" placeholder="username"/></p>
-            <input type="text" placeholder="Tell us about your stay" />
+            <label>
+              Your overall rating
+              <br/>
+              <select>
+              <option value="null"></option>
+                <option value="5">Excellent</option>
+                <option value="4">Very good</option>
+                <option value="3">Average</option>
+                <option value="2">Poor</option>
+                <option value="1">Terrible</option>
+              </select>
+            </label>
+            <br/>
+            <label>
+              Your review
+              <br/>
+              <textarea className="main-review-input" type="text" placeholder="Tell people about your experience: your room, location, amenities?"></textarea>
+            </label>
+
+            <form className="radio-form">
+              What sort of trip was this?
+              <br/>
+              <label>
+                <input type="radio" name="name" value="1" />
+                Business
+              </label>
+              <label>
+                <input type="radio" name="name" value="2" />
+                Couples
+              </label>
+              <label>
+                <input type="radio" name="name" value="3" />
+                Family
+              </label>
+              <label>
+                <input type="radio" name="name" value="4" />
+                Friends
+              </label>
+              <label>
+                <input type="radio" name="name" value="5" />
+                Solo
+              </label>
+            </form>
           </div>
 
           <div className="box-footer">
             <button onClick={this.handleClick} className="close">
-              Submit Initial Feedback
-            </button>
-            <button onClick={this.handleClick} className="close">
-              Close
+              Submit
             </button>
           </div>
         </div>
