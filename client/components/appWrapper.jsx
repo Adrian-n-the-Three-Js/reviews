@@ -193,7 +193,6 @@ const AppWrapper = styled.div`
   a:hover {
     text-decoration: underline;
   }
-
 `;
 
 export default AppWrapper;
