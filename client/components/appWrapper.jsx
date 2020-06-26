@@ -4,8 +4,10 @@ const AppWrapper = styled.div`
   .app {
     padding: 20px;
     border: 1px solid #e0e0e0;
+    background-color: #f2f2f2;
   }
   div {
+    background-color: #fff;
     font-family: "Trips Sans", Arial, sans-serif;
     color: rbg(44, 44, 44);
   }
@@ -51,6 +53,11 @@ const AppWrapper = styled.div`
   .filters:after{
     clear: both;
   }
+  .filters {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
   .filters ul {
     box-sizing: border-box;
     diplay: block;
@@ -59,19 +66,26 @@ const AppWrapper = styled.div`
     flex-shrink: 0;
     font-size: 14px;
     height: auto;
-    margin: 0px;
     padding: 8px;
     float: left;
     width: 30%;
     list-style: none;
+    text-align: left;
   }
   .filters label,
   .filters input {
     cursor: pointer;
     border-spacing: 0 12px;
   }
+  .top-portion {
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    margin: 8px;
+  }
   .search {
-    margin: 0 1.5% 24px 1.5%
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    margin: 8px;
     clear: both;
   }
   .reviews {

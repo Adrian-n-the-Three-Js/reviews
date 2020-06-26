@@ -137,6 +137,8 @@ class App extends React.Component {
       <AppWrapper>
         <div className="app">
 
+        <div className="top-portion">
+
           <div className="header">
             <div className="header-text"><h1>Reviews</h1></div>
 
@@ -305,6 +307,8 @@ class App extends React.Component {
                 </li>
               </ul>
             </div>
+
+          </div>
 
           </div>
 
