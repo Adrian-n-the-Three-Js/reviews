@@ -87,10 +87,34 @@ const AppWrapper = styled.div`
     border: 1px solid #e0e0e0;
     margin: 8px;
     clear: both;
+    cursor: text;
+    text-align: center;
+  }
+  .search input {
+    box-sizing: border-box;
+    width: 97%;
+    margin: auto;
+    padding: 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
   }
   .reviews {
-    margin: 0 1.5% 24px 1.5%
     clear: both;
+  }
+  .reviews ul {
+    background-color: #f2f2f2;
+    margin: 0px;
+    padding: 8px;
+    padding-top: 0px;
+    clear: both;
+  }
+  .reviews li {
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    list-style: none;
+    width: auto;
+    background-color: #fff;
   }
 `;
 
