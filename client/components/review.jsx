@@ -5,10 +5,10 @@ function Review(props) {
   return (
     <li className="review">
       <div className="review-header">
-        <img src={props.reviewData.user_avatar} width="10" height="10"></img>
+        <a href="#"><img src={props.reviewData.user_avatar} width="10" height="10"></img></a>
         <div className="review-header-text">
           <div className="review-header-text-name">
-            <div><strong>{props.reviewData.username}</strong>{` wrote a review ${moment(props.reviewData.review_date).format('LL')}`}</div>
+            <div><a href="#"><strong>{props.reviewData.username}</strong></a>{` wrote a review ${moment(props.reviewData.review_date).format('LL')}`}</div>
           </div>
           <div className="review-header-text-info">
             <div>{props.reviewData.user_city} &bull; <strong>{props.reviewData.user_contributions}</strong> contribution(s) &bull; <strong>{props.reviewData.user_helpful_votes}</strong> helpful vote(s)</div>

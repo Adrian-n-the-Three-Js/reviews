@@ -161,6 +161,13 @@ const AppWrapper = styled.div`
     line-height: 18px;
     color: #000a12;
   }
+  a {
+    color: #4a4a4a;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 
 export default AppWrapper;
