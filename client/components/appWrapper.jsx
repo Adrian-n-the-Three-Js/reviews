@@ -200,6 +200,19 @@ const AppWrapper = styled.div`
   a:hover {
     text-decoration: underline;
   }
+  .prog-container {
+    background-color: #e0e0e0;
+  }
+  .prog-excellent {
+    height: 10px;
+    width: ${props => props.excellent / props.total * 100}%;
+    color: black;
+    background-color: #000;
+  }
+  span {
+    font-color: black;
+  }
+
 `;
 
 export default AppWrapper;

@@ -133,8 +133,24 @@ class App extends React.Component {
   }
 
   render() {
+
+    var excellent = 0;
+    var veryGood = 0;
+    var average = 0;
+    var poor = 0;
+    var terrible = 0;
+    var products = this.productsToSearch();
+
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].overall_rating === 5) excellent++;
+      if (products[i].overall_rating === 4) veryGood++;
+      if (products[i].overall_rating === 3) average++;
+      if (products[i].overall_rating === 2) poor++;
+      if (products[i].overall_rating === 2) terrible++;
+    }
+
     return (
-      <AppWrapper>
+      <AppWrapper excellent={excellent} veryGood={veryGood} average={average} poor={poor} terrible={terrible} total={products.length}>
         <div className="app">
 
         <div className="top-portion">
@@ -165,6 +181,8 @@ class App extends React.Component {
                     <input name="5" type="checkbox" checked={this.state.filters.overall_rating["5"]} onChange={e => this.handleChange(e, 'overall_rating')} />
                     Excellent
                   </label>
+                  <div className="prog-container"><div className="prog-excellent"></div></div>
+                  <span className="excellentCount">{excellent}</span>
                 </li>
                 <li>
                   <label>
