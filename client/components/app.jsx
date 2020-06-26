@@ -314,16 +314,14 @@ class App extends React.Component {
 
           <div className="search">
 
-            <form>
-              <div className="search-form-contents">
-                <div className="search-icon-container">
-                  <img src="https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_960_720.png" className="search-icon" alt="search-icon"/>
-                </div>
-                <div className="search-bar">
-                  <input name="searchTerm" type="text" placeholder="Search reviews" value={this.state.filters.search.searchTerm} onChange={e => this.handleSearch(e)} />
-                </div>
+
+              <div className="search-icon-container">
+                <img src="https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_960_720.png" className="search-icon" alt="search-icon"/>
               </div>
-            </form>
+              <div className="search-bar">
+                <input name="searchTerm" type="text" placeholder="Search reviews" value={this.state.filters.search.searchTerm} onChange={e => this.handleSearch(e)} />
+              </div>
+
           </div>
 
           <div className="reviews">

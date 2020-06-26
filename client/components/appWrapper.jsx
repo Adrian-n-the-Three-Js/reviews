@@ -86,23 +86,31 @@ const AppWrapper = styled.div`
     padding: 8px;
     border: 1px solid #e0e0e0;
     margin: 8px;
-    clear: both;
     cursor: text;
+    width: auto;
+    position: relative;
+    vertical-align: middle;
+  }
+  .search div {
+    padding: 5px;
+    box-sizing: border-box;
+    display: inline-block;
     text-align: center;
   }
+  .search-icon-container {
+    width: 6%;
+    vertical-align: middle;
+  }
+  .search-bar {
+    width: 90%;
+  }
   .search input {
-    box-sizing: border-box;
-    width: 910px;
-    margin: auto;
-    margin-left: 4px;
+    width: 100%;
+    margin-left: 6px;
     padding: 12px;
     font-size: 14px;
     border: none;
     border-radius: 2px;
-  }
-  .search-form-contents {
-    display: flex;
-    align-items: center;
   }
   .search img {
     height: 30px;
