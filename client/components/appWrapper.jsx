@@ -203,14 +203,38 @@ const AppWrapper = styled.div`
   .prog-container {
     background-color: #e0e0e0;
   }
+  span {
+    font-color: black;
+  }
   .prog-excellent {
     height: 10px;
     width: ${props => props.excellent / props.total * 100}%;
     color: black;
     background-color: #000;
   }
-  span {
-    font-color: black;
+  .prog-veryGood {
+    height: 10px;
+    width: ${props => props.veryGood / props.total * 100}%;
+    color: black;
+    background-color: #000;
+  }
+  .prog-average {
+    height: 10px;
+    width: ${props => props.average / props.total * 100}%;
+    color: black;
+    background-color: #000;
+  }
+  .prog-poor {
+    height: 10px;
+    width: ${props => props.poor / props.total * 100}%;
+    color: black;
+    background-color: #000;
+  }
+  .prog-terrible {
+    height: 10px;
+    width: ${props => props.terrible / props.total * 100}%;
+    color: black;
+    background-color: #000;
   }
 
 `;

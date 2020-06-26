@@ -139,14 +139,14 @@ class App extends React.Component {
     var average = 0;
     var poor = 0;
     var terrible = 0;
-    var products = this.productsToSearch();
+    var products = this.state.reviews;
 
     for (let i = 0; i < products.length; i++) {
       if (products[i].overall_rating === 5) excellent++;
       if (products[i].overall_rating === 4) veryGood++;
       if (products[i].overall_rating === 3) average++;
       if (products[i].overall_rating === 2) poor++;
-      if (products[i].overall_rating === 2) terrible++;
+      if (products[i].overall_rating === 1) terrible++;
     }
 
     return (
@@ -182,31 +182,39 @@ class App extends React.Component {
                     Excellent
                   </label>
                   <div className="prog-container"><div className="prog-excellent"></div></div>
-                  <span className="excellentCount">{excellent}</span>
+                  <span>{excellent}</span>
                 </li>
                 <li>
                   <label>
                     <input name="4" type="checkbox" checked={this.state.filters.overall_rating["4"]} onChange={e => this.handleChange(e, 'overall_rating')} />
                     Very Good
                   </label>
+                  <div className="prog-container"><div className="prog-veryGood"></div></div>
+                  <span>{veryGood}</span>
                 </li>
                 <li>
                   <label>
                     <input name="3" type="checkbox" checked={this.state.filters.overall_rating["3"]} onChange={e => this.handleChange(e, 'overall_rating')} />
                     Average
                   </label>
+                  <div className="prog-container"><div className="prog-average"></div></div>
+                  <span>{average}</span>
                 </li>
                 <li>
                   <label>
                     <input name="2" type="checkbox" checked={this.state.filters.overall_rating["2"]} onChange={e => this.handleChange(e, 'overall_rating')} />
                     Poor
                   </label>
+                  <div className="prog-container"><div className="prog-poor"></div></div>
+                  <span>{poor}</span>
                 </li>
                 <li>
                   <label>
                     <input name="1" type="checkbox" checked={this.state.filters.overall_rating["1"]} onChange={e => this.handleChange(e, 'overall_rating')} />
                     Terrible
                   </label>
+                  <div className="prog-container"><div className="prog-terrible"></div></div>
+                  <span>{terrible}</span>
                 </li>
               </ul>
             </div>
