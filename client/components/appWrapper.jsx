@@ -137,9 +137,11 @@ const AppWrapper = styled.div`
   }
   .review-header-text-info {
     font-size: 12px;
+    color: #767676;
   }
   .review-body {
     display: block;
+    padding: 8px;
     padding-top: 10px;
     font-size: 14px;
     line-height: 20px;
@@ -154,6 +156,7 @@ const AppWrapper = styled.div`
   }
   .review-date-of-stay {
     padding-top: 12px;
+    padding-bottom: 12px;
     font-size: 14px;
     line-height: 18px;
     color: #000a12;
