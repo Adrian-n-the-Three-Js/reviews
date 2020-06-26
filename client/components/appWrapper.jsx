@@ -92,12 +92,21 @@ const AppWrapper = styled.div`
   }
   .search input {
     box-sizing: border-box;
-    width: 97%;
+    width: 910px;
     margin: auto;
+    margin-left: 4px;
     padding: 12px;
     font-size: 14px;
     border: none;
     border-radius: 2px;
+  }
+  .search-form-contents {
+    display: flex;
+    align-items: center;
+  }
+  .search img {
+    height: 30px;
+    width: 30px;
   }
   .reviews {
     clear: both;
@@ -111,6 +120,9 @@ const AppWrapper = styled.div`
   }
   .reviews li {
     padding: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
     border: 1px solid #e0e0e0;
     list-style: none;
     width: auto;
@@ -118,6 +130,8 @@ const AppWrapper = styled.div`
     margin-bottom: 8px;
   }
   .review-header {
+    padding: 8px;
+    padding-bottom: 4px;
     display: flex;
     justify-content: initial;
   }
@@ -125,23 +139,32 @@ const AppWrapper = styled.div`
   .review-header:after {
     clear: both;
   }
-  img {
+  .review-header img {
     height: 30px;
     width: 30px;
     border-radius: 30px;
   }
-  .review-header-text {
-    margin-left: 10px;
+  .review-header-text img {
+    height: 11px;
+    width: 8px;
+  }
+  .user-map-icon-container {
+    float: left;
+  }
+  .user-map-icon-container:after {
+    clear: both;
+  }
+  .review-header-text-name {
     font-size: 14px;
     color: #4a4a4a;
   }
-  .review-header-text-info {
+  .review-header-text {
+    margin-left: 10px;
     font-size: 12px;
     color: #767676;
   }
   .review-body {
     display: block;
-    padding: 8px;
     padding-top: 10px;
     font-size: 14px;
     line-height: 20px;
@@ -150,11 +173,13 @@ const AppWrapper = styled.div`
   .review-body-text {
     font-size: 16px;
     line-height: 20px;
+    padding: 8px;
   }
   .review-body div {
     background-color: rgb(249, 249, 249);
   }
   .review-date-of-stay {
+    padding: 8px;
     padding-top: 12px;
     padding-bottom: 12px;
     font-size: 14px;
@@ -168,6 +193,7 @@ const AppWrapper = styled.div`
   a:hover {
     text-decoration: underline;
   }
+
 `;
 
 export default AppWrapper;

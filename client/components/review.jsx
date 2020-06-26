@@ -10,9 +10,9 @@ function Review(props) {
           <div className="review-header-text-name">
             <div><a href="#"><strong>{props.reviewData.username}</strong></a>{` wrote a review ${moment(props.reviewData.review_date).format('LL')}`}</div>
           </div>
-          <div className="review-header-text-info">
-            <div>{props.reviewData.user_city} &bull; <strong>{props.reviewData.user_contributions}</strong> contribution(s) &bull; <strong>{props.reviewData.user_helpful_votes}</strong> helpful vote(s)</div>
-            {/* <div>{`${props.reviewData.user_city} - ${props.reviewData.user_contributions} contribution(s) - ${props.reviewData.user_helpful_votes} helpful vote(s)`}</div> */}
+          <div className="review-header-text-container">
+            <div className="user-map-icon-container"><img src="https://www.clker.com/cliparts/A/c/j/V/a/Q/google-map-pointer-grey-hi.png" alt="map-icon"/></div>
+            <div className="review-header-text">{props.reviewData.user_city} &bull; <strong>{props.reviewData.user_contributions}</strong> contribution(s) &bull; <strong>{props.reviewData.user_helpful_votes}</strong> helpful vote(s)</div>
           </div>
         </div>
       </div>
