@@ -118,10 +118,8 @@ const AppWrapper = styled.div`
     margin-bottom: 8px;
   }
   .review-header {
-    align-items: center;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: initial;
   }
   .review-header:before,
   .review-header:after {
@@ -132,14 +130,33 @@ const AppWrapper = styled.div`
     width: 30px;
     border-radius: 30px;
   }
+  .review-header-text {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #4a4a4a;
+  }
+  .review-header-text-info {
+    font-size: 12px;
+  }
   .review-body {
     display: block;
     padding-top: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4a4a4a;
+  }
+  .review-body-text {
     font-size: 16px;
     line-height: 20px;
   }
   .review-body div {
     background-color: rgb(249, 249, 249);
+  }
+  .review-date-of-stay {
+    padding-top: 12px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000a12;
   }
 `;
 
