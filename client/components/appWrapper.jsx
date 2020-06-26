@@ -200,9 +200,6 @@ const AppWrapper = styled.div`
   a:hover {
     text-decoration: underline;
   }
-  .prog-container {
-    background-color: #e0e0e0;
-  }
   span {
     font-color: black;
   }
@@ -235,6 +232,39 @@ const AppWrapper = styled.div`
     width: ${props => props.terrible / props.total * 100}%;
     color: black;
     background-color: #000;
+  }
+  .traveler_rating li {
+    padding: 4px;
+    margin: 2px;
+    width: auto;
+    position: relative;
+    vertical-align: middle;
+    text-align: right;
+  }
+  .traveler_rating label {
+    padding: 2px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    float:left;
+  }
+  .traveler_rating input {
+    margin-right: 8px;
+  }
+  .prog-container {
+    background-color: #e0e0e0;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 40%;
+    vertical-align: middle;
+  }
+  .traveler_rating span {
+    padding: 5px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
   }
 
 `;
