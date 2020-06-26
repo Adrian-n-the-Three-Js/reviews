@@ -2,6 +2,7 @@ import React from 'react';
 import Review from './review.jsx';
 import $ from 'jquery';
 import Modal from './modal.jsx';
+import AppWrapper from './appWrapper.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -133,191 +134,196 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <AppWrapper>
+        <div className="app">
 
-        <div className="header">
-          <h1>Reviews</h1>
+          <div className="header">
+            <h1>Reviews</h1>
 
-          <div className="modal">
-            <input type="submit" value="Write a review" onClick={this.toggleModal} />
-            {this.state.isModalOpen ? <Modal
-            id="modal"
-            isOpen={this.state.isModalOpen}
-            onClose={this.toggleModal}
-            >
-            </Modal>
-            : null}
+            <div className="modal">
+              <input type="submit" value="Write a review" onClick={this.toggleModal} />
+              {this.state.isModalOpen ? <Modal
+              id="modal"
+              isOpen={this.state.isModalOpen}
+              onClose={this.toggleModal}
+              >
+              </Modal>
+              : null}
+            </div>
+
           </div>
 
-        </div>
+          <div className="filters">
 
-        <div className="filters">
+            <div className="traveler_rating">
+              <ul>
+              Traveler rating
+                <li>
+                  <label>
+                    <input name="5" type="checkbox" checked={this.state.filters.overall_rating["5"]} onChange={e => this.handleChange(e, 'overall_rating')} />
+                    Excellent
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="4" type="checkbox" checked={this.state.filters.overall_rating["4"]} onChange={e => this.handleChange(e, 'overall_rating')} />
+                    Very Good
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="3" type="checkbox" checked={this.state.filters.overall_rating["3"]} onChange={e => this.handleChange(e, 'overall_rating')} />
+                    Average
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="2" type="checkbox" checked={this.state.filters.overall_rating["2"]} onChange={e => this.handleChange(e, 'overall_rating')} />
+                    Poor
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="1" type="checkbox" checked={this.state.filters.overall_rating["1"]} onChange={e => this.handleChange(e, 'overall_rating')} />
+                    Terrible
+                  </label>
+                </li>
+              </ul>
+            </div>
 
-          <div className="traveler_rating">
-          Traveler rating
+            <div className="time_of_year">
+              <ul>
+              Time of year
+                <li>
+                <label>
+                    <input name="1" type="checkbox" checked={this.state.filters.month_of_stay["1"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    January
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="2" type="checkbox" checked={this.state.filters.month_of_stay["2"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    February
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="3" type="checkbox" checked={this.state.filters.month_of_stay["3"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    March
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="4" type="checkbox" checked={this.state.filters.month_of_stay["4"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    April
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="5" type="checkbox" checked={this.state.filters.month_of_stay["5"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    May
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="6" type="checkbox" checked={this.state.filters.month_of_stay["6"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    June
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="7" type="checkbox" checked={this.state.filters.month_of_stay["7"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    July
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="8" type="checkbox" checked={this.state.filters.month_of_stay["8"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    August
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="9" type="checkbox" checked={this.state.filters.month_of_stay["9"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    September
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="10" type="checkbox" checked={this.state.filters.month_of_stay["10"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    October
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="11" type="checkbox" checked={this.state.filters.month_of_stay["11"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    November
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="12" type="checkbox" checked={this.state.filters.month_of_stay["12"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
+                    December
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div className="traveler_type">
+
+              <ul>
+              Traveler type
+                <li>
+                  <label>
+                    <input name="Families" type="checkbox" checked={this.state.filters.trip_type.families} onChange={e => this.handleChange(e, 'trip_type')} />
+                    Families
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="Couples" type="checkbox" checked={this.state.filters.trip_type.couples} onChange={e => this.handleChange(e, 'trip_type')} />
+                    Couples
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="Solo" type="checkbox" checked={this.state.filters.trip_type.solo} onChange={e => this.handleChange(e, 'trip_type')} />
+                    Solo
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="Business" type="checkbox" checked={this.state.filters.trip_type.business} onChange={e => this.handleChange(e, 'trip_type')} />
+                    Business
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input name="Friends" type="checkbox" checked={this.state.filters.trip_type.friends} onChange={e => this.handleChange(e, 'trip_type')} />
+                    Friends
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div className="search">
+
+            <form>
+              <input name="searchTerm" type="text" placeholder="Search reviews" value={this.state.filters.search.searchTerm} onChange={e => this.handleSearch(e)} />
+            </form>
+          </div>
+
+          <div className="reviews">
             <ul>
-              <li>
-                <label>
-                  <input name="5" type="checkbox" checked={this.state.filters.overall_rating["5"]} onChange={e => this.handleChange(e, 'overall_rating')} />
-                  Excellent
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="4" type="checkbox" checked={this.state.filters.overall_rating["4"]} onChange={e => this.handleChange(e, 'overall_rating')} />
-                  Very Good
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="3" type="checkbox" checked={this.state.filters.overall_rating["3"]} onChange={e => this.handleChange(e, 'overall_rating')} />
-                  Average
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="2" type="checkbox" checked={this.state.filters.overall_rating["2"]} onChange={e => this.handleChange(e, 'overall_rating')} />
-                  Poor
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="1" type="checkbox" checked={this.state.filters.overall_rating["1"]} onChange={e => this.handleChange(e, 'overall_rating')} />
-                  Terrible
-                </label>
-              </li>
+              {this.productsToSearch().map((review) => {
+                return <Review reviewData={review} />
+              })}
             </ul>
           </div>
-
-          <div className="time_of_year">
-          Time of year
-            <ul>
-              <li>
-              <label>
-                  <input name="1" type="checkbox" checked={this.state.filters.month_of_stay["1"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  January
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="2" type="checkbox" checked={this.state.filters.month_of_stay["2"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  February
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="3" type="checkbox" checked={this.state.filters.month_of_stay["3"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  March
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="4" type="checkbox" checked={this.state.filters.month_of_stay["4"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  April
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="5" type="checkbox" checked={this.state.filters.month_of_stay["5"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  May
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="6" type="checkbox" checked={this.state.filters.month_of_stay["6"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  June
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="7" type="checkbox" checked={this.state.filters.month_of_stay["7"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  July
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="8" type="checkbox" checked={this.state.filters.month_of_stay["8"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  August
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="9" type="checkbox" checked={this.state.filters.month_of_stay["9"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  September
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="10" type="checkbox" checked={this.state.filters.month_of_stay["10"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  October
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="11" type="checkbox" checked={this.state.filters.month_of_stay["11"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  November
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="12" type="checkbox" checked={this.state.filters.month_of_stay["12"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
-                  December
-                </label>
-              </li>
-            </ul>
-          </div>
-
-          <div className="traveler_type">
-          Traveler type
-            <ul>
-              <li>
-                <label>
-                  <input name="Families" type="checkbox" checked={this.state.filters.trip_type.families} onChange={e => this.handleChange(e, 'trip_type')} />
-                  Families
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="Couples" type="checkbox" checked={this.state.filters.trip_type.couples} onChange={e => this.handleChange(e, 'trip_type')} />
-                  Couples
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="Solo" type="checkbox" checked={this.state.filters.trip_type.solo} onChange={e => this.handleChange(e, 'trip_type')} />
-                  Solo
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="Business" type="checkbox" checked={this.state.filters.trip_type.business} onChange={e => this.handleChange(e, 'trip_type')} />
-                  Business
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input name="Friends" type="checkbox" checked={this.state.filters.trip_type.friends} onChange={e => this.handleChange(e, 'trip_type')} />
-                  Friends
-                </label>
-              </li>
-            </ul>
-          </div>
-
         </div>
-
-        <div className="search">
-
-          <form>
-            <input name="searchTerm" type="text" placeholder="Search reviews" value={this.state.filters.search.searchTerm} onChange={e => this.handleSearch(e)} />
-          </form>
-        </div>
-
-        <ul>
-          {this.productsToSearch().map((review) => {
-            return <Review reviewData={review} />
-          })}
-        </ul>
-      </div>
+      </AppWrapper>
     );
   }
 
