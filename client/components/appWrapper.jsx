@@ -115,6 +115,10 @@ const AppWrapper = styled.div`
     list-style: none;
     width: auto;
     background-color: #fff;
+    margin-bottom: 8px;
+  }
+  .review-body div {
+    background-color: rgb(249, 249, 249);
   }
 `;
 
