@@ -138,7 +138,7 @@ class App extends React.Component {
         <div className="app">
 
           <div className="header">
-            <h1>Reviews</h1>
+            <div className="header-text"><h1>Reviews</h1></div>
 
             <div className="modal">
               <input type="submit" value="Write a review" onClick={this.toggleModal} />
@@ -157,7 +157,7 @@ class App extends React.Component {
 
             <div className="traveler_rating">
               <ul>
-              Traveler rating
+                <div className="filter-header">Traveler rating</div>
                 <li>
                   <label>
                     <input name="5" type="checkbox" checked={this.state.filters.overall_rating["5"]} onChange={e => this.handleChange(e, 'overall_rating')} />
@@ -193,7 +193,7 @@ class App extends React.Component {
 
             <div className="time_of_year">
               <ul>
-              Time of year
+                <div className="filter-header">Time of year</div>
                 <li>
                 <label>
                     <input name="1" type="checkbox" checked={this.state.filters.month_of_stay["1"]} onChange={e => this.handleChange(e, 'month_of_stay')} />
@@ -272,7 +272,7 @@ class App extends React.Component {
             <div className="traveler_type">
 
               <ul>
-              Traveler type
+                <div className="filter-header">Traveler type</div>
                 <li>
                   <label>
                     <input name="Families" type="checkbox" checked={this.state.filters.trip_type.families} onChange={e => this.handleChange(e, 'trip_type')} />
