@@ -117,6 +117,27 @@ const AppWrapper = styled.div`
     background-color: #fff;
     margin-bottom: 8px;
   }
+  .review-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .review-header:before,
+  .review-header:after {
+    clear: both;
+  }
+  img {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+  }
+  .review-body {
+    display: block;
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 20px;
+  }
   .review-body div {
     background-color: rgb(249, 249, 249);
   }
