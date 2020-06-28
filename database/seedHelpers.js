@@ -17,7 +17,7 @@ const generateReviewBody = () => {
   const randomAdj = locationAdjectives[getRandomIndex(locationAdjectives.length)];
   const stayAgainLikelihood = ['not', 'probably not', 'potentially', 'likely', 'very likely', 'definitely', 'certainly'];
   const randomLikelihood = stayAgainLikelihood[getRandomIndex(stayAgainLikelihood.length)];
-  return `I ${randomMood} the ${randomNoun} in the ${randomArea}. The location was ${randomAdj}. All things aside, I would ${randomLikelihood} stay here again.`;
+  return `I ${randomMood} the ${randomNoun} in the ${randomArea}. The location was ${randomAdj}. I would ${randomLikelihood} stay here again.`;
 };
 
 const generateRoomTip = () => {
