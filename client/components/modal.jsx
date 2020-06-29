@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
 import ModalWrapper from './modalWrapper.jsx';
 
 const modalRoot = document.getElementById('modal-root');
@@ -9,8 +8,8 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fadeType: null
-    }
+      fadeType: null,
+    };
     this.background = React.createRef();
     this.transitionEnd = this.transitionEnd.bind(this);
     this.onEscKeyDown = this.onEscKeyDown.bind(this);
@@ -19,17 +18,22 @@ class Modal extends React.Component {
 
   componentDidMount() {
     window.addEventListener('keydown', this.onEscKeyDown, false);
-    setTimeout(() => this.setState({fadeType: 'in'}), 0);
+    setTimeout(() => this.setState({ fadeType: 'in' }), 0);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (!this.props.isOpen && prevProps.isOpen) {
-      this.setState({fadeType: 'out'});
+      this.setState({ fadeType: 'out' });
     }
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.onEscKeyDown, false);
+  }
+
+  onEscKeyDown(e) {
+    if (e.key !== 'Escape') return;
+    this.setState({ fadeType: 'out' });
   }
 
   transitionEnd(e) {
@@ -39,14 +43,9 @@ class Modal extends React.Component {
     }
   }
 
-  onEscKeyDown(e) {
-    if (e.key !== 'Escape') return;
-    this.setState({fadeType: 'out'});
-  }
-
   handleClick(e) {
     e.preventDefault();
-    this.setState({fadeType: 'out'});
+    this.setState({ fadeType: 'out' });
   }
 
   render() {
@@ -57,19 +56,17 @@ class Modal extends React.Component {
         role='dialog'
         modalSize={this.props.modalSize}
         onTransitionEnd={this.transitionEnd}
-        >
+      >
         <div className="box-dialog">
           <div className="box-header">
             <h4 className="box-title">Leave a review</h4>
-            <button onClick={this.handleClick} className="close">
-              ×
-            </button>
+            <button type="submit" onClick={this.handleClick} className="close">×</button>
           </div>
 
           <div className="box-content">
             <label>
               Your overall rating
-              <br/>
+              <br />
               <select>
               <option value="null"></option>
                 <option value="5">Excellent</option>
@@ -79,16 +76,16 @@ class Modal extends React.Component {
                 <option value="1">Terrible</option>
               </select>
             </label>
-            <br/>
+            <br />
             <label>
               Your review
               <br/>
-              <textarea className="main-review-input" type="text" placeholder="Tell people about your experience: your room, location, amenities?"></textarea>
+              <textarea className="main-review-input" type="text" placeholder="Tell people about your experience: your room, location, amenities?" />
             </label>
 
             <form className="radio-form">
               What sort of trip was this?
-              <br/>
+              <br />
               <label>
                 <input type="radio" name="name" value="1" />
                 Business
@@ -113,7 +110,7 @@ class Modal extends React.Component {
           </div>
 
           <div className="box-footer">
-            <button onClick={this.handleClick} className="close">
+            <button type="submit" onClick={this.handleClick} className="close">
               Submit
             </button>
           </div>
@@ -124,7 +121,7 @@ class Modal extends React.Component {
           ref={this.background}
         />
       </ModalWrapper>,
-      modalRoot
+      modalRoot,
     );
   }
 }
