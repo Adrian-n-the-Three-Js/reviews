@@ -1,7 +1,7 @@
 const express = require('express');
 
 const app = express();
-const port = 3000;
+const port = 3004;
 const models = require('./models.js');
 
 app.use('/', express.static('public'));
