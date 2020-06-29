@@ -5,6 +5,8 @@ const AppWrapper = styled.div`
     padding: 20px;
     border: 1px solid #e0e0e0;
     background-color: #f2f2f2;
+    min-width: 700px;
+    max-width: 800px;
   }
   div {
     background-color: #fff;
@@ -71,6 +73,9 @@ const AppWrapper = styled.div`
     width: 30%;
     list-style: none;
     text-align: left;
+  }
+  .traveler_rating ul {
+    width: 40%;
   }
   .filters label,
   .filters input {
@@ -255,16 +260,20 @@ const AppWrapper = styled.div`
     background-color: #e0e0e0;
     box-sizing: border-box;
     display: inline-block;
-    width: 40%;
+    width: 30%;
     vertical-align: middle;
   }
   .traveler_rating span {
     padding: 5px;
     padding-left: 15px;
+    padding-right: 30px;
     box-sizing: border-box;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+  }
+  .traveler_rating label {
+    padding-right: 10px;
   }
   .time_of_year label,
   .traveler_type label {
@@ -277,6 +286,11 @@ const AppWrapper = styled.div`
   .time_of_year input,
   .traveler_type input {
     margin-right: 8px;
+  }
+  .filters {
+    display: inline-block;
+    text-align: center;
+    position: relative;
   }
 `;
 
