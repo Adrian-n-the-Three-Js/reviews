@@ -1,13 +1,12 @@
 # Project Name
 
-> Project description
+> Reviews component of Hotellooo
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Hotellooo/calendar
+  - https://github.com/teamName/about
+  - https://github.com/teamName/photos-carousel
 
 ## Table of Contents
 
@@ -17,23 +16,23 @@
 
 ## Usage
 
-> Some usage instructions
+> To be used in conjunction with other Hotellooo components mentioned in related projects section
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+- Node 10.15.3
 
 ## Development
+
+> See installing dependencies instructions
 
 ### Installing Dependencies
 
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
+npm react-dev
+npm seed
 ```
 
