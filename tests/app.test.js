@@ -97,7 +97,7 @@ describe('App', () => {
   });
 
   // TIME OF YEAR
-  it('user selects Jan', () => {
+  it('user selects Jan-Mar', () => {
     const wrapper = shallow(<App />);
     wrapper.find('div[className="time_of_year"] input[name="1"]').simulate('change', {
       target: {name: "1"}
@@ -105,23 +105,7 @@ describe('App', () => {
     expect(wrapper.state()["filters"]["month_of_stay"]["1"]).toBe(true);
   });
 
-  it('user selects Feb', () => {
-    const wrapper = shallow(<App />);
-    wrapper.find('div[className="time_of_year"] input[name="2"]').simulate('change', {
-      target: {name: "2"}
-    });
-    expect(wrapper.state()["filters"]["month_of_stay"]["2"]).toBe(true);
-  });
-
-  it('user selects Mar', () => {
-    const wrapper = shallow(<App />);
-    wrapper.find('div[className="time_of_year"] input[name="3"]').simulate('change', {
-      target: {name: "3"}
-    });
-    expect(wrapper.state()["filters"]["month_of_stay"]["3"]).toBe(true);
-  });
-
-  it('user selects Apr', () => {
+  it('user selects Apr-Jun', () => {
     const wrapper = shallow(<App />);
     wrapper.find('div[className="time_of_year"] input[name="4"]').simulate('change', {
       target: {name: "4"}
@@ -129,23 +113,7 @@ describe('App', () => {
     expect(wrapper.state()["filters"]["month_of_stay"]["4"]).toBe(true);
   });
 
-  it('user selects May', () => {
-    const wrapper = shallow(<App />);
-    wrapper.find('div[className="time_of_year"] input[name="5"]').simulate('change', {
-      target: {name: "5"}
-    });
-    expect(wrapper.state()["filters"]["month_of_stay"]["5"]).toBe(true);
-  });
-
-  it('user selects Jun', () => {
-    const wrapper = shallow(<App />);
-    wrapper.find('div[className="time_of_year"] input[name="6"]').simulate('change', {
-      target: {name: "6"}
-    });
-    expect(wrapper.state()["filters"]["month_of_stay"]["6"]).toBe(true);
-  });
-
-  it('user selects Jul', () => {
+  it('user selects Jul-Sep', () => {
     const wrapper = shallow(<App />);
     wrapper.find('div[className="time_of_year"] input[name="7"]').simulate('change', {
       target: {name: "7"}
@@ -153,44 +121,12 @@ describe('App', () => {
     expect(wrapper.state()["filters"]["month_of_stay"]["7"]).toBe(true);
   });
 
-  it('user selects Aug', () => {
-    const wrapper = shallow(<App />);
-    wrapper.find('div[className="time_of_year"] input[name="8"]').simulate('change', {
-      target: {name: "8"}
-    });
-    expect(wrapper.state()["filters"]["month_of_stay"]["8"]).toBe(true);
-  });
-
-  it('user selects Sep', () => {
-    const wrapper = shallow(<App />);
-    wrapper.find('div[className="time_of_year"] input[name="9"]').simulate('change', {
-      target: {name: "9"}
-    });
-    expect(wrapper.state()["filters"]["month_of_stay"]["9"]).toBe(true);
-  });
-
-  it('user selects Oct', () => {
+  it('user selects Oct-Dec', () => {
     const wrapper = shallow(<App />);
     wrapper.find('div[className="time_of_year"] input[name="10"]').simulate('change', {
       target: {name: "10"}
     });
     expect(wrapper.state()["filters"]["month_of_stay"]["10"]).toBe(true);
-  });
-
-  it('user selects Nov', () => {
-    const wrapper = shallow(<App />);
-    wrapper.find('div[className="time_of_year"] input[name="11"]').simulate('change', {
-      target: {name: "11"}
-    });
-    expect(wrapper.state()["filters"]["month_of_stay"]["11"]).toBe(true);
-  });
-
-  it('user selects Dec', () => {
-    const wrapper = shallow(<App />);
-    wrapper.find('div[className="time_of_year"] input[name="12"]').simulate('change', {
-      target: {name: "12"}
-    });
-    expect(wrapper.state()["filters"]["month_of_stay"]["12"]).toBe(true);
   });
 
   // TRAVELER TYPE

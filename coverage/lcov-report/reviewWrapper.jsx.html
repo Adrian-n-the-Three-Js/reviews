@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for review.jsx</title>
+    <title>Code coverage report for reviewWrapper.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> review.jsx</h1>
+        <h1><a href="index.html">All files</a> reviewWrapper.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,11 +90,7 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -110,6 +106,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,38 +116,41 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import moment from 'moment';
-import ReviewWrapper from './reviewWrapper.jsx';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styled from 'styled-components';
 &nbsp;
-function Review(props) {
-  return (
-    &lt;ReviewWrapper rating={props.reviewData.overall_rating / 5 * 100}&gt;
-      &lt;li className="review"&gt;
-        &lt;div className="review-header"&gt;
-          &lt;a href="#"&gt;&lt;img src={props.reviewData.user_avatar} width="10" height="10"&gt;&lt;/img&gt;&lt;/a&gt;
-          &lt;div className="review-header-text"&gt;
-            &lt;div className="review-header-text-name"&gt;
-              &lt;div&gt;&lt;a href="#"&gt;&lt;strong&gt;{props.reviewData.username}&lt;/strong&gt;&lt;/a&gt;{` wrote a review ${moment(props.reviewData.review_date).format('MMM YYYY')}`}&lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div className="review-header-text-container"&gt;
-              &lt;div className="user-map-icon-container"&gt;&lt;img src="https://www.clker.com/cliparts/A/c/j/V/a/Q/google-map-pointer-grey-hi.png" alt="map-icon" /&gt;&lt;/div&gt;
-              &lt;div className="review-header-text"&gt;{props.reviewData.user_city} &amp;bull; &lt;strong&gt;{props.reviewData.user_contributions}&lt;/strong&gt; contribution(s) &amp;bull; &lt;strong&gt;{props.reviewData.user_helpful_votes}&lt;/strong&gt; helpful vote(s)&lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div className="review-body"&gt;
-          &lt;div className="Stars" /&gt;
-          &lt;div className="review-body-text"&gt;{'"' + props.reviewData.review_body + '"'}&lt;/div&gt;
-          &lt;div className="review-date-of-stay"&gt;&lt;strong&gt;Date of stay: &lt;/strong&gt;{moment(props.reviewData.date_of_stay).format('MMMM YYYY')}&lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ReviewWrapper&gt;
-  );
-}
+const ReviewWrapper = styled.div`
+  .Stars {
+    --star-size: 12px;
+    --star-color: #fff;
+    --star-background: #00aa6c;
 &nbsp;
-export default Review;
-&nbsp;</pre></td></tr></table></pre>
+    background-color: rgb(249, 249, 249);
+    padding: 8px;
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times; // make sure ★ appears correctly
+    line-height: 1;
+&nbsp;
+    &amp;::before {
+      content: '⬤⬤⬤⬤⬤';
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, var(--star-background) ${<span class="fstat-no" title="function not covered" >pr</span>ops =&gt; <span class="cstat-no" title="statement not covered" >props.rating}</span>%, var(--star-color) ${<span class="fstat-no" title="function not covered" >pr</span>ops =&gt; <span class="cstat-no" title="statement not covered" >props.rating}</span>%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 2px #00aa6c;
+    }
+  }
+`;
+&nbsp;
+export default ReviewWrapper;
+&nbsp;
+//calc(var(${props =&gt; props.rating}) / 5 * 100%);
+//--percent: calc(var(--number) / 5 * 100%);
+&nbsp;
+// background: linear-gradient(90deg, var(--star-background) ${props =&gt; props.rating}, var(--star-color) ${props =&gt; props.rating});</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
