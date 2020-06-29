@@ -56,9 +56,11 @@ const generateUserAvatar = () => {
   return randomUrl;
 };
 
-// for user contributions, user helpful votes, ratings
-// pass num + 1 in order that we can pass 5 for ratings and potentially receive a 5
+// for user contributions, user helpful votes
 const generateNumber = (num) => getRandomIndex(num + 1);
+
+// for ratings, 1-5
+const generateRating = () => Math.floor(Math.random() * 5) + 1;
 
 const generateDate = (start) => {
   const end = new Date();
@@ -142,7 +144,7 @@ const seedReviews = (callback) => {
     for (let x = 0; x < reviewsPerHotel; x++) {
       const dateOfStay = generateDate(new Date(2010, 0, 1));
       const reviewDate = generateDate(dateOfStay);
-      const queryArgs = [generateNumber(numberOfUsers), i, reviewDate, generateReviewBody(), dateOfStay, generateRoomTip(), generateTripType(), generateNumber(5), generateNumber(5), generateNumber(5), generateNumber(5), generateNumber(5), generateNumber(5), generateNumber(5), generateNumber(1), generateNumber(30)];
+      const queryArgs = [generateNumber(numberOfUsers), i, reviewDate, generateReviewBody(), dateOfStay, generateRoomTip(), generateTripType(), generateRating(), generateRating(), generateRating(), generateRating(), generateRating(), generateRating(), generateRating(), generateNumber(1), generateNumber(30)];
       reviewTasks.push(queryArgs);
     }
   }
@@ -176,16 +178,6 @@ const seedQuestions = (callback) => {
     }
   });
 };
-
-// const getQuestionCount = (callback) => {
-//   db.query('SELECT COUNT(*) FROM questions', (err, result) => {
-//     if (err) {
-//       console.log('error: ' + err.message);
-//     } else {
-//       callback(result, () => console.log('Done!'));
-//     }
-//   });
-// };
 
 const seedAnswers = (numberQuestionIds, callback) => {
   const sql = 'INSERT INTO answers(question_id, answerer_user_id, answer_body, thumbs_up_count, thumbs_down_count) VALUES ?';
