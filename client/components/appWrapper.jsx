@@ -70,9 +70,12 @@ const AppWrapper = styled.div`
     height: auto;
     padding: 8px;
     float: left;
-    width: 33%;
+    width: 30%;
     list-style: none;
     text-align: left;
+  }
+  .traveler_rating ul {
+    width: 40%;
   }
   .filters label,
   .filters input {
@@ -263,10 +266,14 @@ const AppWrapper = styled.div`
   .traveler_rating span {
     padding: 5px;
     padding-left: 15px;
+    padding-right: 30px;
     box-sizing: border-box;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+  }
+  .traveler_rating label {
+    padding-right: 10px;
   }
   .time_of_year label,
   .traveler_type label {

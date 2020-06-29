@@ -52,9 +52,18 @@ class App extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
   }
 
+  componentDidMount() {
+    $.ajax({
+      url: `/reviews/${this.props.hotelId}`,
+      method: "GET",
+      success: (data) => { this.setState({ reviews: JSON.parse(data) }); },
+      error: () => console.log('Error retrieving data from server'),
+    });
+  }
+
   toggleModal() {
     this.setState({
-      isModalOpen: !this.state.isModalOpen
+      isModalOpen: !this.state.isModalOpen,
     });
   }
 
@@ -84,12 +93,12 @@ class App extends React.Component {
   }
 
   aggregateFilters() {
-    var combinedFilters = {
+    const combinedFilters = {
       overall_rating: [],
       month_of_stay: [],
-      trip_type: []
+      trip_type: [],
     };
-    var {overall_rating, month_of_stay, trip_type} = this.state.filters;
+    const {overall_rating, month_of_stay, trip_type} = this.state.filters;
     for (let ratingKey in overall_rating) {
       if (overall_rating[ratingKey]) combinedFilters.overall_rating.push(Number(ratingKey));
     }
@@ -103,9 +112,9 @@ class App extends React.Component {
   }
 
   returnFilteredReviews(reviews, filters) {
-    var filterKeys = Object.keys(filters);
+    const filterKeys = Object.keys(filters);
     return reviews.filter(review => {
-      return filterKeys.every(key => {
+      return filterKeys.every((key) => {
         // ignores empty filter
         if (!filters[key].length) return true;
         if (Array.isArray(review[key])) {
@@ -117,41 +126,29 @@ class App extends React.Component {
   }
 
   productsToSearch() {
-    var filteredReviews = this.returnFilteredReviews(this.state.reviews, this.aggregateFilters());
-    return filteredReviews.filter(review => {
-      return review.review_body.toLowerCase().includes(this.state.filters.search.searchTerm.toLowerCase());
-    });
-  }
-
-  componentDidMount() {
-    $.ajax({
-      url: `/reviews/${this.props.hotelId}`,
-      method: "GET",
-      success: (data) => { this.setState({reviews: JSON.parse(data)}) },
-      error: () => console.log('Error retrieving data from server')
-    });
+    const filteredReviews = this.returnFilteredReviews(this.state.reviews, this.aggregateFilters());
+    return filteredReviews.filter((review) => review.review_body.toLowerCase().includes(this.state.filters.search.searchTerm.toLowerCase()));
   }
 
   handleSearch(e) {
     const term = e.target.value;
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       filters: {
         ...prevState.filters,
         search: {
-          searchTerm: term
-        }
-      }
+          searchTerm: term,
+        },
+      },
     }));
   }
 
   render() {
-
-    var excellent = 0;
-    var veryGood = 0;
-    var average = 0;
-    var poor = 0;
-    var terrible = 0;
-    var products = this.state.reviews;
+    let excellent = 0;
+    let veryGood = 0;
+    let average = 0;
+    let poor = 0;
+    let terrible = 0;
+    const products = this.state.reviews;
 
     for (let i = 0; i < products.length; i++) {
       if (products[i].overall_rating === 5) excellent++;
@@ -165,21 +162,15 @@ class App extends React.Component {
       <AppWrapper excellent={excellent} veryGood={veryGood} average={average} poor={poor} terrible={terrible} total={products.length}>
         <div className="app">
 
-        <div className="top-portion">
+          <div className="top-portion">
 
-          <div className="header">
-            <div className="header-text"><h1>Reviews</h1></div>
+            <div className="header">
+              <div className="header-text"><h1>Reviews</h1></div>
 
-            <div className="modal">
-              <input type="submit" value="Write a review" onClick={this.toggleModal} />
-              {this.state.isModalOpen ? <Modal
-              id="modal"
-              isOpen={this.state.isModalOpen}
-              onClose={this.toggleModal}
-              >
-              </Modal>
-              : null}
-            </div>
+              <div className="modal">
+                <input type="submit" value="Write a review" onClick={this.toggleModal} />
+                {this.state.isModalOpen ? <Modal id="modal" isOpen={this.state.isModalOpen} onClose={this.toggleModal} /> : null}
+              </div>
 
           </div>
 
