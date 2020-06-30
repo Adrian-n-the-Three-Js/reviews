@@ -8,11 +8,13 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seed": "node ./database/seedHelpers.js",
+    "build-db": "mysql -u root < ./database/schema.sql",
+    "seed-db": "node ./database/seedHelpers.js",
     "nodemon": "nodemon ./server/index.js",
     "react-dev": "NODE_ENV=production BABEL_ENV=production webpack -d --watch",
     "test": "jest --coverage --verbose",
-    "lint": "npx eslint ."
+    "lint": "npx eslint .",
+    "start": "node ./server/index.js"
   },
   "dependencies": {
     "babel-preset-react-app": "^9.1.2",
