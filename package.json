@@ -20,6 +20,7 @@
     "babel-preset-react-app": "^9.1.2",
     "bluebird": "^3.7.2",
     "express": "^4.17.1",
+    "http-proxy": "^1.18.1",
     "jquery": "^3.5.1",
     "moment": "^2.27.0",
     "mysql": "^2.18.1",
