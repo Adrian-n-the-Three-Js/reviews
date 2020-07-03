@@ -25,8 +25,3 @@ const ReviewWrapper = styled.div`
 `;
 
 export default ReviewWrapper;
-
-//calc(var(${props => props.rating}) / 5 * 100%);
-//--percent: calc(var(--number) / 5 * 100%);
-
-// background: linear-gradient(90deg, var(--star-background) ${props => props.rating}, var(--star-color) ${props => props.rating});
