@@ -12,6 +12,7 @@
     "seed-db": "node ./database/seedHelpers.js",
     "nodemon": "nodemon ./server/index.js",
     "react-dev": "NODE_ENV=production BABEL_ENV=production webpack -d --watch",
+    "build": "NODE_ENV=production BABEL_ENV=production webpack --mode production",
     "test": "jest --coverage --verbose",
     "lint": "npx eslint .",
     "start": "node ./server/index.js"
