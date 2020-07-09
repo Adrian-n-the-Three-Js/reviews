@@ -1,6 +1,6 @@
 CREATE DATABASE reviewComp;
 
-USE reviewComp;
+\c reviewComp;
 
 CREATE SCHEMA reviews;
 
@@ -35,6 +35,5 @@ CREATE TABLE reviews (
   rooms_rating tinyint,
   cleanliness_rating tinyint,
   sleep_quality_rating tinyint,
-  collected_in_part_hotel tinyint(1),
   review_helpful_votes int DEFAULT 0,
 );
