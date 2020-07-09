@@ -55,6 +55,7 @@ npm seed
       "reviews_id": "Number",
       "user_id": "Number",
       "hotel_id": "Number",
+      "review_body": "String",
       "review_date": "String",
       "room_tip": "String",
       "trip_type": "String",
@@ -84,6 +85,7 @@ npm seed
       "hotel_id": "Number",
       "room_tip": "String",
       "trip_type": "String",
+      "review_body": "String",
       "value_rating": "Number",
       "location_rating": "Number",
       "service_rating": "Number",
@@ -94,7 +96,7 @@ npm seed
     }
 ```
 
-### Update review
+### Update review info
   * PATCH `/reviews/:reviewsid`
 
 **Path Parameters:**
@@ -109,15 +111,8 @@ npm seed
 ```json
     {
       "reviews_id": "Number",
+      "review_body": "String",
       "room_tip": "String",
-      "trip_type": "String",
-      "value_rating": "Number",
-      "location_rating": "Number",
-      "service_rating": "Number",
-      "rooms_rating": "Number",
-      "cleanliness_rating": "Number",
-      "sleep_quality_rating": "Number",
-      "collected_in_part_hotel": "Number",
     }
 ```
 
