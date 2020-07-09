@@ -36,3 +36,97 @@ npm react-dev
 npm seed
 ```
 
+## Server API
+
+### Get review
+  * GET `/reviews/:reviewsid`
+
+**Path Parameters:**
+  * `reviewsid` reviews id
+
+**Success Status Code:** `200`
+
+**Error Status Code:** `400`
+
+**Returns:** JSON
+
+```json
+    {
+      "reviews_id": "Number",
+      "user_id": "Number",
+      "hotel_id": "Number",
+      "review_date": "String",
+      "room_tip": "String",
+      "trip_type": "String",
+      "value_rating": "Number",
+      "location_rating": "Number",
+      "service_rating": "Number",
+      "rooms_rating": "Number",
+      "cleanliness_rating": "Number",
+      "sleep_quality_rating": "Number",
+      "collected_in_part_hotel": "Number",
+      "review_helpful_votes": "Number",
+    }
+```
+
+### Add review
+  * POST `/reviews`
+
+**Success Status Code:** `201`
+
+**Error Status Code:** `400`
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+    {
+      "user_id": "Number",
+      "hotel_id": "Number",
+      "room_tip": "String",
+      "trip_type": "String",
+      "value_rating": "Number",
+      "location_rating": "Number",
+      "service_rating": "Number",
+      "rooms_rating": "Number",
+      "cleanliness_rating": "Number",
+      "sleep_quality_rating": "Number",
+      "collected_in_part_hotel": "Number",
+    }
+```
+
+### Update restaurant info
+  * PATCH `/reviews/:reviewsid`
+
+**Path Parameters:**
+  * `reviewsid` reviews id
+
+**Success Status Code:** `204`
+
+**Error Status Code:** `400`
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+    {
+      "reviews_id": "Number",
+      "room_tip": "String",
+      "trip_type": "String",
+      "value_rating": "Number",
+      "location_rating": "Number",
+      "service_rating": "Number",
+      "rooms_rating": "Number",
+      "cleanliness_rating": "Number",
+      "sleep_quality_rating": "Number",
+      "collected_in_part_hotel": "Number",
+    }
+```
+
+### Delete restaurant
+  * DELETE `/reviews/:reviewsid`
+
+**Path Parameters:**
+  * `id` restaurant id
+
+**Success Status Code:** `204`
+
+**Error Status Code:** `400`

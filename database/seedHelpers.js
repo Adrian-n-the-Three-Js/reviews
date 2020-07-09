@@ -108,7 +108,7 @@ const seedHotels = (callback) => {
   console.log(hotelTasks.length);
   db.query(sql, [hotelTasks], (err) => {
     if (err) {
-      console.log(`error: ${err}`);
+      console.log(`error in seed hotels: ${err}`);
     } else {
       callback();
     }
@@ -128,7 +128,7 @@ const seedUsers = (callback) => {
   console.log(userTasks.length);
   db.query(sql, [userTasks], (err) => {
     if (err) {
-      console.log(`error: ${err.message}`);
+      console.log(`error in seed users: ${err.message}`);
     } else {
       callback();
     }
@@ -150,7 +150,7 @@ const seedReviews = (callback) => {
   }
   db.query(sql, [reviewTasks], (err) => {
     if (err) {
-      console.log(`error: ${err.message}`);
+      console.log(`error in seed reviews: ${err.message}`);
     } else {
       callback();
     }
@@ -172,7 +172,7 @@ const seedQuestions = (callback) => {
   }
   db.query(sql, [questionTasks], (err) => {
     if (err) {
-      console.log(`error: ${err.message}`);
+      console.log(`error in seed questions: ${err.message}`);
     } else {
       callback();
     }
@@ -195,7 +195,7 @@ const seedAnswers = (numberQuestionIds, callback) => {
   }
   db.query(sql, [answerTasks], (err) => {
     if (err) {
-      console.log(`error: ${err.message}`);
+      console.log(`error in seed answers: ${err.message}`);
     } else {
       callback();
     }

@@ -7,7 +7,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build-db": "mysql -u root < ./database/schema.sql",
+    "build-db": "mysql -u root -p < ./database/schema.sql",
     "seed-db": "node ./database/seedHelpers.js",
     "nodemon": "nodemon ./server/index.js",
     "react-dev": "NODE_ENV=production BABEL_ENV=production webpack -d --watch",
