@@ -65,7 +65,6 @@ npm seed
       "rooms_rating": "Number",
       "cleanliness_rating": "Number",
       "sleep_quality_rating": "Number",
-      "collected_in_part_hotel": "Number",
       "review_helpful_votes": "Number",
     }
 ```
