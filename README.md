@@ -94,7 +94,7 @@ npm seed
     }
 ```
 
-### Update restaurant info
+### Update review
   * PATCH `/reviews/:reviewsid`
 
 **Path Parameters:**
@@ -121,11 +121,11 @@ npm seed
     }
 ```
 
-### Delete restaurant
+### Delete review
   * DELETE `/reviews/:reviewsid`
 
 **Path Parameters:**
-  * `id` restaurant id
+  * `reviewsid` reviews id
 
 **Success Status Code:** `204`
 
