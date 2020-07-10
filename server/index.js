@@ -4,7 +4,7 @@ const app = express();
 const port = 3004;
 const models = require('./models.js');
 
-app.use('/reviews', express.static('public'));
+app.use('/reviews', express.static(`public`));
 
 app.get('/reviews/:hotelId', (req, res) => {
   // to do: filter hotelId to validate input
@@ -14,20 +14,14 @@ app.get('/reviews/:hotelId', (req, res) => {
   }, hotelId);
 });
 
-app.get('/questions', (req, res) => {
-  models.getQuestionData((resultsPacket) => {
-    res.status(200).send(JSON.stringify(resultsPacket));
-  });
-});
-
-app.post('/reviews/:reviewId', (req, res) => {
-  models.postReview(req, res, ((reviewPosted) => {
-    if (err) {
-      res.status(400)
-    } else {
-      res.send(JSON.stringify(reviewPosted))
-    }
-  }));
-});
+// app.post('/reviews/:reviewId', (req, res) => {
+//   models.postReview(req, res, ((reviewPosted) => {
+//     if (err) {
+//       res.status(400)
+//     } else {
+//       res.send(JSON.stringify(reviewPosted))
+//     }
+//   }));
+// });
 
 app.listen(port, () => console.log(`Reviews app listening at ${port}`));
