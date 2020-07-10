@@ -36,5 +36,5 @@ CREATE TABLE reviews (
   cleanliness_rating tinyint,
   sleep_quality_rating tinyint,
   review_helpful_votes int,
-  PRIMARY KEY ((user_id), review_date, id)
+  PRIMARY KEY ((hotel_id), review_date, id)
 );
