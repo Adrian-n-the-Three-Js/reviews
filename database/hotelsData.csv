@@ -1,101 +1,101 @@
 id,hotel_name,hotel_city
-0,The Holiday Moon,Los Angeles
-1,International Holiday Oriental,Dallas
-2,Western Ambassadors Hotel,St. Louis
-3,Intercontinental Fairmont Oriental,Los Angeles
-4,Economy Midtown Quarters,San Francisco
-5,Luxury Holiday Lodge,Houston
-6,Western Uptown Lodge,Oklahoma City
-7,Best Fairmont Inn,Jacksonville
-8,Luxury Embassy Suites,St. Louis
-9,Regional Uptown Lodges,Phoenix
-10,Western Midtown Lodge,Oklahoma City
-11,Western Travelers Suites,Fort Worth
-12,Best Travelers Quarters,St. Louis
-13,Best Travelers Suites,Oklahoma City
-14,International Holiday Quarters,Dallas
-15,Luxury Embassy Lodge,Oklahoma City
-16,The Fairmont Club,San Francisco
-17,Economy Embassy Moon,San Diego
-18,Intercontinental Fairmont Oriental,Dallas
-19,Western Holiday Quarters,St. Louis
-20,Best Fairmont Resort,New York City
-21,Western Ambassadors Oriental,Nashville
-22,Oriental Holiday Lodges,San Diego
-23,Western Holiday Quarters,Fort Worth
-24,Northern Ambassadors Club,Fort Worth
-25,Western Holiday Resort,Nashville
-26,Best Ambassadors Lodges,Louisville
-27,Best Nomad Suites,Indianapolis
-28,Oriental Nomad Lodges,Nashville
-29,Western Ambassadors Lodges,Houston
-30,Oriental Fairmont Horizons,Fort Worth
-31,Luxury Holiday Resort,Oklahoma City
-32,Luxury Ambassadors Inn,Louisville
-33,Regional Midtown Quarters,Dallas
-34,Oriental Uptown Resort,New Orleans
-35,Best Uptown Hotel,Chicago
-36,Northern Fairmont Oriental,Dallas
-37,International Holiday Inn,Nashville
-38,International Midtown Resort,Denver
-39,Regional Holiday Club,Fort Worth
-40,Western Ambassadors Club,Denver
-41,International Embassy Lodge,Huntsville
-42,Regional Ambassadors Oriental,Oklahoma City
-43,The Midtown Club,Jacksonville
-44,Luxury Midtown Inn,Chicago
-45,Regional Fairmont Club,Louisville
-46,Luxury Embassy Inn,Dallas
-47,The Nomad Resort,San Francisco
-48,Oriental Fairmont Quarters,Indianapolis
-49,Intercontinental Fairmont Club,Boise
-50,Oriental Holiday Inn,Phoenix
-51,Intercontinental Ambassadors Resort,Dallas
-52,Oriental Embassy Inn,San Diego
-53,Oriental Fairmont Club,Oklahoma City
-54,Economy Nomad Lodge,Miami
-55,Economy Midtown Moon,Boise
-56,Regional Midtown Hotel,San Francisco
-57,Luxury Uptown Resort,Phoenix
-58,Northern Midtown Resort,Oklahoma City
-59,Best Embassy Lodge,San Francisco
-60,Economy Midtown Moon,Tampa
-61,The Uptown Inn,Boise
-62,Northern Nomad Lodge,Denver
-63,International Nomad Oriental,San Francisco
-64,The Fairmont Oriental,Fort Worth
-65,Oriental Holiday Suites,Fort Worth
-66,Northern Nomad Horizons,Huntsville
-67,Western Nomad Moon,Dallas
-68,Northern Nomad Oriental,San Francisco
-69,Luxury Midtown Horizons,Dallas
-70,Oriental Travelers Inn,Tampa
-71,Best Nomad Inn,Nashville
-72,Economy Uptown Hotel,Oklahoma City
-73,Intercontinental Holiday Club,Chicago
-74,International Travelers Horizons,San Diego
-75,Best Embassy Suites,Nashville
-76,Intercontinental Embassy Lodges,Nashville
-77,Luxury Midtown Lodges,Huntsville
-78,Northern Fairmont Suites,Dallas
-79,Western Midtown Inn,Louisville
-80,Regional Nomad Lodge,Oklahoma City
-81,Best Fairmont Hotel,Jacksonville
-82,Regional Ambassadors Lodges,San Francisco
-83,International Ambassadors Inn,Louisville
-84,International Embassy Inn,New Orleans
-85,Economy Midtown Lodges,St. Louis
-86,Best Travelers Club,Boise
-87,Intercontinental Holiday Hotel,New Orleans
-88,Luxury Uptown Inn,Indianapolis
-89,Economy Fairmont Lodge,Fort Worth
-90,International Ambassadors Inn,San Francisco
-91,Oriental Holiday Suites,Tampa
-92,International Nomad Quarters,Louisville
-93,Luxury Nomad Lodges,Miami
-94,Economy Embassy Lodge,Jacksonville
-95,Best Travelers Club,St. Louis
-96,Economy Ambassadors Horizons,Denver
-97,Western Midtown Quarters,St. Louis
-98,Northern Embassy Lodge,Louisville
-99,Regional Fairmont Horizons,Dallas
+0,Regional Uptown Horizons,Tampa
+1,Intercontinental Ambassadors Resort,Boise
+2,Luxury Holiday Lodge,Los Angeles
+3,Oriental Nomad Hotel,Oklahoma City
+4,Western Holiday Inn,Chicago
+5,Intercontinental Midtown Resort,Phoenix
+6,Oriental Nomad Suites,Nashville
+7,Intercontinental Midtown Quarters,Boise
+8,International Fairmont Moon,San Diego
+9,Intercontinental Midtown Lodge,Indianapolis
+10,International Fairmont Lodge,Chicago
+11,Economy Nomad Inn,New Orleans
+12,International Nomad Inn,Houston
+13,Intercontinental Midtown Oriental,Miami
+14,Luxury Ambassadors Moon,Huntsville
+15,Luxury Travelers Club,Chicago
+16,Western Uptown Club,New York City
+17,The Ambassadors Inn,Fort Worth
+18,International Ambassadors Horizons,San Diego
+19,Regional Nomad Club,Jacksonville
+20,Northern Midtown Resort,Miami
+21,Luxury Ambassadors Horizons,Fort Worth
+22,The Nomad Horizons,Los Angeles
+23,Best Holiday Lodges,Houston
+24,Northern Travelers Hotel,Huntsville
+25,International Fairmont Lodge,Nashville
+26,Northern Holiday Club,Huntsville
+27,Oriental Embassy Quarters,San Francisco
+28,Regional Ambassadors Oriental,Nashville
+29,Best Fairmont Lodge,Houston
+30,Regional Holiday Quarters,New York City
+31,International Embassy Suites,San Diego
+32,Economy Holiday Oriental,Louisville
+33,Intercontinental Uptown Inn,Tampa
+34,Oriental Uptown Club,San Diego
+35,The Uptown Suites,New York City
+36,Oriental Ambassadors Lodge,New York City
+37,International Embassy Resort,Tampa
+38,The Travelers Oriental,New York City
+39,Northern Midtown Moon,Louisville
+40,Oriental Nomad Resort,Chicago
+41,Northern Embassy Suites,Houston
+42,Northern Travelers Oriental,San Francisco
+43,Luxury Fairmont Inn,Boise
+44,International Fairmont Quarters,Nashville
+45,Intercontinental Embassy Resort,Tampa
+46,Economy Holiday Moon,Los Angeles
+47,Luxury Midtown Resort,Oklahoma City
+48,Intercontinental Travelers Oriental,New Orleans
+49,Western Ambassadors Moon,Jacksonville
+50,Northern Fairmont Club,New York City
+51,The Nomad Lodge,Dallas
+52,Economy Travelers Horizons,Chicago
+53,Economy Fairmont Moon,San Francisco
+54,Western Nomad Resort,Houston
+55,Economy Uptown Inn,Denver
+56,Western Fairmont Suites,Chicago
+57,Regional Ambassadors Oriental,Phoenix
+58,Oriental Nomad Suites,Chicago
+59,Luxury Midtown Resort,Miami
+60,Northern Embassy Lodges,Los Angeles
+61,The Fairmont Horizons,New York City
+62,Regional Travelers Resort,Boise
+63,Oriental Nomad Lodges,Chicago
+64,Best Travelers Oriental,St. Louis
+65,International Embassy Hotel,Huntsville
+66,The Ambassadors Moon,Jacksonville
+67,Regional Embassy Hotel,Denver
+68,Best Holiday Club,Huntsville
+69,Economy Midtown Horizons,San Francisco
+70,The Holiday Resort,Jacksonville
+71,Intercontinental Holiday Horizons,Fort Worth
+72,Northern Midtown Moon,St. Louis
+73,Economy Travelers Lodges,Dallas
+74,Luxury Nomad Suites,Indianapolis
+75,Best Uptown Club,Dallas
+76,Western Nomad Lodges,St. Louis
+77,International Ambassadors Lodge,Houston
+78,Regional Uptown Inn,Los Angeles
+79,Best Ambassadors Suites,San Francisco
+80,The Embassy Lodges,Denver
+81,Intercontinental Uptown Lodge,Los Angeles
+82,Regional Holiday Horizons,Los Angeles
+83,Economy Nomad Lodge,Nashville
+84,International Travelers Inn,Huntsville
+85,Intercontinental Uptown Hotel,Louisville
+86,International Holiday Oriental,San Diego
+87,The Uptown Lodge,St. Louis
+88,Regional Fairmont Horizons,Nashville
+89,Oriental Travelers Horizons,San Francisco
+90,Oriental Midtown Horizons,Oklahoma City
+91,Northern Embassy Suites,Denver
+92,The Fairmont Horizons,Denver
+93,Luxury Uptown Lodges,Louisville
+94,Regional Holiday Hotel,St. Louis
+95,The Embassy Resort,Phoenix
+96,International Ambassadors Lodge,Jacksonville
+97,Intercontinental Ambassadors Inn,San Francisco
+98,Northern Holiday Moon,Miami
+99,Oriental Holiday Lodges,Huntsville

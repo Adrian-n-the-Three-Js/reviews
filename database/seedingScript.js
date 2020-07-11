@@ -139,6 +139,6 @@ const reviewsDataGen = () => {
 };
 
 // userDataGen();
-hotelsDataGen();
-// reviewsDataGen();
+// hotelsDataGen();
+reviewsDataGen();
 
