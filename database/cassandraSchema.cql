@@ -5,13 +5,13 @@ CREATE KEYSPACE IF NOT EXISTS reviewComp;
   };
 
 CREATE TABLE hotels (
-  id uuid PRIMARY KEY,
+  id int PRIMARY KEY,
   hotel_name text,
   hotel_city text,
 );
 
 CREATE TABLE users (
-  id uuid PRIMARY KEY,
+  id int PRIMARY KEY,
   username text,
   user_avatar text,
   user_city text,
@@ -20,7 +20,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE reviews (
-  id uuid,
+  id int,
   user_id uuid,
   hotel_id uuid,
   review_date timestamp,
