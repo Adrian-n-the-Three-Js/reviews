@@ -1,6 +1,9 @@
 const fs = require('fs');
 const csvWriter = require('csv-write-stream');
-const writer = csvWriter();
+
+const userWriter = csvWriter();
+const hotelWriter = csvWriter();
+const reviewWriter = csvWriter();
 
 let userIdCounter = 0;
 let hotelIdCounter = 0;
@@ -73,11 +76,11 @@ const generateTripType = () => {
 
 const generateRating = () => Math.floor(Math.random() * 5) + 1;
 
-const userDataGen = async () => {
-  writer.pipe(fs.createWriteStream('usersData.csv'));
+const userDataGen = () => {
+  userWriter.pipe(fs.createWriteStream('usersData.csv'));
   let allPromises = [];
   for (let i = 0; i < 100; i++) {
-    const promise = writer.write({
+    const promise = userWriter.write({
       id: userIdCounter++,
       userName: generateUserName(),
       user_avatar: 'avatar will go here', //TODO
@@ -88,33 +91,35 @@ const userDataGen = async () => {
     allPromises.push(promise);
   }
   Promise.all(allPromises)
-    .then(() => writer.end())
-    // .then(() => hotelsDataGen())
+    .then(() => userWriter.end())
+    .then(() => hotelsDataGen())
     .catch((err) => console.log(err));
-  console.log('done with user gen');
 };
 
-const hotelsDataGen = async () => {
-  console.log('inside hotels data gen')
-  writer.pipe(fs.createWriteStream('hotelsData.csv'));
+const hotelsDataGen = () => {
+  hotelWriter.pipe(fs.createWriteStream('hotelsData.csv'));
+  let allPromises = []
   for (let i = 0; i < 100; i++) {
-    writer.write({
+    const promise = hotelWriter.write({
       id: hotelIdCounter++,
       hotel_name: generateHotelName(),
       hotel_city: generateCity(),
     });
+    allPromises.push(promise)
   }
-  await writer.end();
-  console.log('done with hotel gen');
+  Promise.all(allPromises)
+    .then(() => hotelWriter.end())
+    .then(() => reviewsDataGen())
+    .catch((err) => console.log(err));
 }
 
 const reviewsDataGen = () => {
-  writer.pipe(fs.createWriteStream('reviewsData.csv'));
+  reviewWriter.pipe(fs.createWriteStream('reviewsData.csv'));
   for (let i = 0; i < 100; i++) {
     for (let j = 0; j < 10; j++) {
       const dateOfStay = generateDate(new Date(2010, 0, 1));
       const reviewDate = generateDate(dateOfStay);
-      writer.write({
+      reviewWriter.write({
         id: reviewIdCounter++,
         user_id: generateNumber(1000),
         hotel_id: i,
@@ -134,11 +139,8 @@ const reviewsDataGen = () => {
       });
     }
   }
-  writer.end();
-  console.log('done with review gen');
+  reviewWriter.end();
 };
 
-// userDataGen();
-// hotelsDataGen();
-reviewsDataGen();
+userDataGen();
 
