@@ -39,10 +39,10 @@ npm seed
 ## Server API
 
 ### Get review
-  * GET `hotels/:hotelid/reviews`
+  * GET `hotels/:hotelId/reviews`
 
 **Path Parameters:**
-  * `hotelid` hotel id
+  * `hotelId` hotel id
 
 **Success Status Code:** `200`
 
@@ -70,10 +70,10 @@ npm seed
 ```
 
 ### Add review
-  * POST `hotel/:hotelid/reviews`
+  * POST `hotel/:hotelId/reviews`
 
 **Path Parameters:**
-  * `hotelid` hotel id
+  * `hotelId` hotel id
 
 **Success Status Code:** `201`
 
@@ -99,11 +99,11 @@ npm seed
 ```
 
 ### Update review info
-  * PATCH `hotels/:hotelid/reviews/:reviewsid`
+  * PATCH `hotels/:hotelId/reviews/:reviewsId`
 
 **Path Parameters:**
-  * `hotelid` hotel id
-  * `reviewsid` reviews id
+  * `hotelId` hotel id
+  * `reviewsId` reviews id
 
 **Success Status Code:** `204`
 
@@ -120,11 +120,11 @@ npm seed
 ```
 
 ### Delete review
-  * DELETE `hotels/:hotelid/reviews/:reviewsid`
+  * DELETE `hotels/:hotelId/reviews/:reviewsId`
 
 **Path Parameters:**
-  * `hotelid` hotel id
-  * `reviewsid` reviews id
+  * `hotelId` hotel id
+  * `reviewsId` reviews id
 
 **Success Status Code:** `204`
 

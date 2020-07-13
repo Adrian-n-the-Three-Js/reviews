@@ -14,14 +14,14 @@ app.get('/hotels/:hotelId/reviews', (req, res) => {
   }, hotelId);
 });
 
-// app.post('/reviews/:reviewId', (req, res) => {
-//   models.postReview(req, res, ((reviewPosted) => {
-//     if (err) {
-//       res.status(400)
-//     } else {
-//       res.send(JSON.stringify(reviewPosted))
-//     }
-//   }));
-// });
+app.post('/hotels/:hotelId/reviews', (req, res) => {
+  models.postReview(req, res, ((reviewPosted) => {
+    if (err) {
+      res.status(400)
+    } else {
+      res.send(JSON.stringify(reviewPosted))
+    }
+  }));
+});
 
 app.listen(port, () => console.log(`Reviews app listening at ${port}`));
