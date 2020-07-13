@@ -39,11 +39,10 @@ npm seed
 ## Server API
 
 ### Get review
-  * GET `hotels/:hotelid/reviews/:reviewsid`
+  * GET `hotels/:hotelid/reviews`
 
 **Path Parameters:**
   * `hotelid` hotel id
-  * `reviewsid` reviews id
 
 **Success Status Code:** `200`
 

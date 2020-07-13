@@ -4,9 +4,9 @@ const app = express();
 const port = 3004;
 const models = require('./models.js');
 
-app.use('/reviews', express.static(`public`));
+app.use('/hotels/:hotelId', express.static(`public`));
 
-app.get('/reviews/:hotelId', (req, res) => {
+app.get('/hotels/:hotelId/reviews', (req, res) => {
   // to do: filter hotelId to validate input
   const hotelId = req.params.hotelId || 1;
   models.getReviewData((results) => {

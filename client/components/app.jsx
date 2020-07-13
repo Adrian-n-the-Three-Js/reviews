@@ -54,7 +54,7 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: `/reviews/${this.props.hotelId}`,
+      url: `/hotels/${this.props.hotelId}/reviews`,
       method: "GET",
       success: (data) => { this.setState({ reviews: JSON.parse(data) }); },
       error: () => console.log('Error retrieving data from server'),
@@ -98,7 +98,7 @@ class App extends React.Component {
       month_of_stay: [],
       trip_type: [],
     };
-    const {overall_rating, month_of_stay, trip_type} = this.state.filters;
+    const { overall_rating, month_of_stay, trip_type } = this.state.filters;
     for (let ratingKey in overall_rating) {
       if (overall_rating[ratingKey]) combinedFilters.overall_rating.push(Number(ratingKey));
     }
@@ -226,8 +226,8 @@ class App extends React.Component {
                 <ul>
                   <div className="filter-header">Time of year</div>
                   <li>
-                  <label>
-                    <input name="1" type="checkbox" checked={this.state.filters.month_of_stay['1']} onChange={(e) => this.handleChange(e, 'month_of_stay')} />
+                    <label>
+                      <input name="1" type="checkbox" checked={this.state.filters.month_of_stay['1']} onChange={(e) => this.handleChange(e, 'month_of_stay')} />
                     Jan - Mar
                     </label>
                   </li>
