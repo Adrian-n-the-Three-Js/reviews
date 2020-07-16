@@ -1,2 +1,8 @@
 node_modules
 mySQL.creds.js
+/database/hotelStream1.csv
+/database/hotelStream2.csv
+/database/hotelStream3.csv
+/database/hotelStream4.csv
+/database/usersData.csv
+/database/reviews.csv

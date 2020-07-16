@@ -1,27 +1,35 @@
 const express = require('express');
+const {
+  getAllReviews, postReview, editReview, deleteReview,
+} = require('./review.js');
 
 const app = express();
 const port = 3004;
-const models = require('./models.js');
 
 app.use('/hotels/:hotelId', express.static(`public`));
 
 app.get('/hotels/:hotelId/reviews', (req, res) => {
-  // to do: filter hotelId to validate input
-  const hotelId = req.params.hotelId || 1;
-  models.getReviewData((results) => {
-    res.status(200).send(JSON.stringify(results));
-  }, hotelId);
+  getAllReviews()
+    .then((response) => res.send(response))
+    .catch(() => res.sendStatus(400));
 });
 
 app.post('/hotels/:hotelId/reviews', (req, res) => {
-  models.postReview(req, res, ((reviewPosted) => {
-    if (err) {
-      res.status(400)
-    } else {
-      res.send(JSON.stringify(reviewPosted))
-    }
-  }));
+  postReview(req.body)
+    .then(() => res.sendStatus(201))
+    .catch(() => res.sendStatus(400));
 });
 
-app.listen(port, () => console.log(`Reviews app listening at ${port}`));
+app.patch('/hotels/:hotelId/reviews/:reviewId', (req, res) => {
+  editReview(req.params.reviewId, req.body)
+    .then(() => res.sendStatus(200))
+    .catch(() => res.sendStatus(404));
+});
+
+app.delete('/hotels/:hotelId/reviews/:reviewId', (req, res) => {
+  deleteReview(req.params.reviewId)
+    .then(() => res.sendStatus(200))
+    .catch(() => res.sendStatus(404));
+});
+
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))

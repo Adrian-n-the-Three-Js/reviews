@@ -1,8 +1,12 @@
-CREATE KEYSPACE IF NOT EXISTS reviewComp;
+DROP KEYSPACE IF EXISTS reviewComp;
+
+CREATE KEYSPACE reviewComp
   WITH REPLICATION = {
     'class' : 'SimpleStrategy',
     'replication_factor' : 1
   };
+
+USE reviewcomp;
 
 CREATE TABLE hotels (
   id int PRIMARY KEY,
@@ -21,11 +25,11 @@ CREATE TABLE users (
 
 CREATE TABLE reviews (
   id int,
-  user_id uuid,
-  hotel_id uuid,
-  review_date timestamp,
+  user_id int,
+  hotel_id int,
+  review_date text,
   review_body text,
-  date_of_stay date,
+  date_of_stay text,
   room_tip text,
   trip_type text,
   overall_rating tinyint,

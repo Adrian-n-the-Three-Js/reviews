@@ -1,13 +1,8 @@
 const fs = require('fs');
 const csvWriter = require('csv-write-stream');
+const faker = require('faker');
 
 const userWriter = csvWriter();
-const hotelWriter = csvWriter();
-const reviewWriter = csvWriter();
-
-let userIdCounter = 0;
-let hotelIdCounter = 0;
-let reviewIdCounter = 0;
 
 const getRandomIndex = (optionArrayLength) => Math.floor(Math.random() * Math.floor(optionArrayLength));
 
@@ -28,7 +23,7 @@ const generateCity = () => {
 
 // for user contributions, user helpful votes
 const generateNumber = (num) => getRandomIndex(num + 1);
-
+const generateUsers = (num) => Math.floor(Math.random() * (num - 1) + 1);
 
 const generateHotelName = () => {
   const first = ['The', 'International', 'Regional', 'Intercontinental', 'Best', 'Oriental', 'Western', 'Northern', 'Luxury', 'Economy'];
@@ -76,70 +71,100 @@ const generateTripType = () => {
 
 const generateRating = () => Math.floor(Math.random() * 5) + 1;
 
+const generateAmount = 30000000;
+// const quarterSection = generateAmount / 4;
+// const tenthSection = generateAmount / 20;
+// const page = 20;
+
+const writeReviews = fs.createWriteStream('./database/reviews.csv');
+writeReviews.write('hotel_id,review_date,id,cleanliness_rating,date_of_stay,location_rating,overall_rating,review_body,review_helpful_votes,room_tip,rooms_rating,service_rating,sleep_quality_rating,trip_type,user_id,value_rating\n', 'utf8');
+
+function writeAllReviews(writer, encoding, callback) {
+  let i = generateAmount;
+  let id = 0;
+  let hotelId = 0;
+  function write() {
+    let ok = true;
+    do {
+      i -= 1;
+      const dateOfStay = generateDate(new Date(2010, 0, 1));
+      const reviewDate = generateDate(dateOfStay);
+      const hotel_id = (id % 3 === 0) ? ++hotelId : hotelId;
+      if (hotel_id % 100000 === 0) {
+        console.log('hotel at id', hotelId);
+      }
+      const review_date = reviewDate;
+      id += 1;
+      const cleanliness_rating = generateRating();
+      const date_of_stay = dateOfStay;
+      const location_rating = generateRating();
+      const overall_rating = generateRating();
+      const review_body = generateReviewBody();
+      const review_helpful_votes = generateNumber(30);
+      const room_tip = generateRoomTip();
+      const rooms_rating = generateRating();
+      const service_rating = generateRating();
+      const sleep_quality_rating = generateRating();
+      const trip_type = generateTripType();
+      const user_id = generateUsers(1000);
+      const value_rating = generateRating();
+      const data = `${hotel_id},${review_date},${id},${cleanliness_rating},${date_of_stay},${location_rating},${overall_rating},${review_body},${review_helpful_votes},${room_tip},${rooms_rating},${service_rating},${sleep_quality_rating},${trip_type},${user_id},${value_rating}\n`;
+      if (i === 0) {
+        writer.write(data, encoding, callback);
+      } else {
+        ok = writer.write(data, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+      writer.once('drain', write);
+    }
+  }
+  write();
+}
+
+writeAllReviews(writeReviews, 'utf-8', () => {
+  writeReviews.end();
+});
+
+const hotelsDataGen = () => {
+  let hotelsCounter = (page - 1) * quarterSection + 1;
+  const hotelWriter = csvWriter();
+  hotelWriter.pipe(fs.createWriteStream(`./database/hotelStream${page}.csv`));
+  for (let j = 1; j <= quarterSection; j += 1) {
+    hotelWriter.write({
+      id: hotelsCounter++,
+      hotel_city: generateCity(),
+      hotel_name: generateHotelName(),
+    });
+  }
+  hotelWriter.end();
+  console.log('seeded hotels page', page)
+};
+
 const userDataGen = () => {
-  userWriter.pipe(fs.createWriteStream('usersData.csv'));
-  let allPromises = [];
-  for (let i = 0; i < 100; i++) {
+  // userGenBar.start(1000, 0)
+  userWriter.pipe(fs.createWriteStream('./database/usersData.csv'));
+  const allPromises = [];
+  let userIdCounter = 1;
+  for (let i = 0; i < 1000; i += 1) {
     const promise = userWriter.write({
       id: userIdCounter++,
-      userName: generateUserName(),
-      user_avatar: 'avatar will go here', //TODO
+      user_avatar: faker.image.avatar(),
       user_city: generateCity(),
       user_contributions: generateNumber(30),
       user_helpful_votes: generateNumber(30),
+      userName: generateUserName(),
     });
     allPromises.push(promise);
+    // userGenBar.increment();
   }
   Promise.all(allPromises)
     .then(() => userWriter.end())
-    .then(() => hotelsDataGen())
+    // .then(() => userGenBar.stop())
+    .then(() => console.log('generated users'))
+    // .then(() => hotelsDataGen())
     .catch((err) => console.log(err));
 };
 
-const hotelsDataGen = () => {
-  hotelWriter.pipe(fs.createWriteStream('hotelsData.csv'));
-  let allPromises = []
-  for (let i = 0; i < 100; i++) {
-    const promise = hotelWriter.write({
-      id: hotelIdCounter++,
-      hotel_name: generateHotelName(),
-      hotel_city: generateCity(),
-    });
-    allPromises.push(promise)
-  }
-  Promise.all(allPromises)
-    .then(() => hotelWriter.end())
-    .then(() => reviewsDataGen())
-    .catch((err) => console.log(err));
-}
+// reviewsDataGen();
 
-const reviewsDataGen = () => {
-  reviewWriter.pipe(fs.createWriteStream('reviewsData.csv'));
-  for (let i = 0; i < 100; i++) {
-    for (let j = 0; j < 10; j++) {
-      const dateOfStay = generateDate(new Date(2010, 0, 1));
-      const reviewDate = generateDate(dateOfStay);
-      reviewWriter.write({
-        id: reviewIdCounter++,
-        user_id: generateNumber(1000),
-        hotel_id: i,
-        review_date: reviewDate,
-        review_body: generateReviewBody(),
-        date_of_stay: dateOfStay,
-        room_tip: generateRoomTip(),
-        trip_type: generateTripType(),
-        overall_rating: generateRating(),
-        value_rating: generateRating(),
-        location_rating: generateRating(),
-        service_rating: generateRating(),
-        rooms_rating: generateRating(),
-        cleanliness_rating: generateRating(),
-        sleep_quality_rating: generateRating(),
-        review_helpful_votes: generateNumber(30),
-      });
-    }
-  }
-  reviewWriter.end();
-};
-
-userDataGen();
