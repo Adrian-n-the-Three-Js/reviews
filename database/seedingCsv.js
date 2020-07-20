@@ -55,7 +55,6 @@ const generateReviewBody = () => {
 };
 
 const generateRoomTip = () => {
-  // some people might not have tips, but assume everyone does at first
   const commands = ['Do not forget to', 'Make sure to', 'Always', 'You might want to', 'I would advise everyone to', 'Never forget to', 'It is always recommended that you', 'Do not', 'Never'];
   const randomCommand = commands[getRandomIndex(commands.length)];
   const actions = ['try the snacks', 'hang out in the lobby', 'eat at the hotel restaurant', 'go swimming', 'ask for an upgrade', 'request a tour of the facilities', 'ask for local restaurant recommendations', 'tip the maids', 'use the mini bar', 'check out the bar'];
@@ -71,16 +70,14 @@ const generateTripType = () => {
 
 const generateRating = () => Math.floor(Math.random() * 5) + 1;
 
-const generateAmount = 30000000;
-// const quarterSection = generateAmount / 4;
-// const tenthSection = generateAmount / 20;
-// const page = 20;
+const reviewAmount = 30000000;
+const hotelAmount = 10000000;
 
-const writeReviews = fs.createWriteStream('./database/reviews.csv');
+const writeReviews = fs.createWriteStream('./database/allReviews.csv');
 writeReviews.write('hotel_id,review_date,id,cleanliness_rating,date_of_stay,location_rating,overall_rating,review_body,review_helpful_votes,room_tip,rooms_rating,service_rating,sleep_quality_rating,trip_type,user_id,value_rating\n', 'utf8');
 
 function writeAllReviews(writer, encoding, callback) {
-  let i = generateAmount;
+  let i = reviewAmount;
   let id = 0;
   let hotelId = 0;
   function write() {
@@ -91,7 +88,7 @@ function writeAllReviews(writer, encoding, callback) {
       const reviewDate = generateDate(dateOfStay);
       const hotel_id = (id % 3 === 0) ? ++hotelId : hotelId;
       if (hotel_id % 100000 === 0) {
-        console.log('hotel at id', hotelId);
+        console.log('hotel for reviews table at id', hotelId);
       }
       const review_date = reviewDate;
       id += 1;
@@ -110,7 +107,9 @@ function writeAllReviews(writer, encoding, callback) {
       const value_rating = generateRating();
       const data = `${hotel_id},${review_date},${id},${cleanliness_rating},${date_of_stay},${location_rating},${overall_rating},${review_body},${review_helpful_votes},${room_tip},${rooms_rating},${service_rating},${sleep_quality_rating},${trip_type},${user_id},${value_rating}\n`;
       if (i === 0) {
-        writer.write(data, encoding, callback);
+        writer.write(data, encoding);
+        writer.end();
+        ok = false;
       } else {
         ok = writer.write(data, encoding);
       }
@@ -122,32 +121,47 @@ function writeAllReviews(writer, encoding, callback) {
   write();
 }
 
-writeAllReviews(writeReviews, 'utf-8', () => {
-  writeReviews.end();
-});
+writeAllReviews(writeReviews, 'utf-8', () => { });
 
-const hotelsDataGen = () => {
-  let hotelsCounter = (page - 1) * quarterSection + 1;
-  const hotelWriter = csvWriter();
-  hotelWriter.pipe(fs.createWriteStream(`./database/hotelStream${page}.csv`));
-  for (let j = 1; j <= quarterSection; j += 1) {
-    hotelWriter.write({
-      id: hotelsCounter++,
-      hotel_city: generateCity(),
-      hotel_name: generateHotelName(),
-    });
+const writeHotels = fs.createWriteStream('hotels.csv');
+writeHotels.write('id,hotel_city,hotel_name\n', 'utf8');
+
+function writeTenMillionHotels(writer, encoding) {
+  let i = hotelAmount;
+  let id = 0;
+  function write() {
+    let ok = true;
+    do {
+      i -= 1;
+      id += 1;
+      if (id % 500000 === 0) {
+        console.log('hotel id is at ', id);
+      }
+      const hotel_city = generateCity();
+      const hotel_name = generateHotelName();
+      const data = `${id},${hotel_city},${hotel_name}\n`;
+      if (i === 0) {
+        writer.write(data, encoding);
+        writer.end();
+        ok = false;
+      } else {
+        ok = writer.write(data, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+      writer.once('drain', write);
+    }
   }
-  hotelWriter.end();
-  console.log('seeded hotels page', page)
-};
+  write();
+}
 
-const userDataGen = () => {
-  // userGenBar.start(1000, 0)
-  userWriter.pipe(fs.createWriteStream('./database/usersData.csv'));
-  const allPromises = [];
+writeTenMillionHotels(writeHotels, 'utf-8');
+
+const writeOneThousandUsers = () => {
+  userWriter.pipe(fs.createWriteStream('./database/users.csv'));
   let userIdCounter = 1;
   for (let i = 0; i < 1000; i += 1) {
-    const promise = userWriter.write({
+    userWriter.write({
       id: userIdCounter++,
       user_avatar: faker.image.avatar(),
       user_city: generateCity(),
@@ -155,16 +169,7 @@ const userDataGen = () => {
       user_helpful_votes: generateNumber(30),
       userName: generateUserName(),
     });
-    allPromises.push(promise);
-    // userGenBar.increment();
   }
-  Promise.all(allPromises)
-    .then(() => userWriter.end())
-    // .then(() => userGenBar.stop())
-    .then(() => console.log('generated users'))
-    // .then(() => hotelsDataGen())
-    .catch((err) => console.log(err));
 };
 
-// reviewsDataGen();
-
+writeOneThousandUsers();

@@ -53,8 +53,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log('inside component did mount')
+    let path = window.location.pathname;
+    let id = path.split('/').filter(word => word !== '').pop();
     $.ajax({
-      url: `/hotels/${this.props.hotelId}/reviews`,
+      url: `/hotels/${id}/reviews`,
       method: "GET",
       success: (data) => { this.setState({ reviews: JSON.parse(data) }); },
       error: () => console.log('Error retrieving data from server'),
