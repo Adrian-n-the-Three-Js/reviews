@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const { getReviews } = require('./review.js');
 const cluster = require('cluster');

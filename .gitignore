@@ -10,3 +10,4 @@ mySQL.creds.js
 /database/users.csv
 /database/usersData.csv
 /database/hotels.csv
+.env
