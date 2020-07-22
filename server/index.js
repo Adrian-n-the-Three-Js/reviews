@@ -19,7 +19,7 @@ if (cluster.isMaster) {
   app.get('/hotels/:hotelId/reviews', (req, res) => {
     getReviews(req.params.hotelId)
       .then((response) => res.send(JSON.stringify(response.rows)))
-      .catch((err) => res.send(err));
+      .catch((err) => { console.log('err', err); res.send(err) });
   });
   app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 }
